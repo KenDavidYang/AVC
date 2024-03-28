@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="../css/navigation-bar.css">
+    <link rel="stylesheet" href="../css/sign-up.css">
+</head>
+<body>
+    <div class="navigation-bar">
+        <a href="../index.html">
+            <img class="navigation-bar-img" src="../image/default.png" alt="img">
+        </a>
+
+        <div class="navigation-bar-middle">
+            <a class="navigation-bar-middle-sub" href="about.html">About</a>
+            <a class="navigation-bar-middle-sub" href="services.html">Services</a>
+            <a class="navigation-bar-middle-sub" href="orders.html">Orders</a>
+        </div>
+
+        <div>
+            <a href="sign-up.html">
+                <button class="button-sign-up">Sign Up</button>
+            </a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container-container">
+        <div class="container">
+            <div class="title">Create your account</div>
+            
+            <form action="../php/sign-up.php" method="post">
+
+                <div class="input-container">
+                    <div class="margin-top">First name:</div>
+                    <input class="input" type="text" name="first-name" placeholder="First Name">                
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Last name:</div>
+                    <input class="input" type="text" name="last-name" placeholder="Last Name">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Email:</div>
+                    <input class="input" type="text" name="emaill" placeholder="Email">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Password:</div>
+                    <input class="input" type="text" name="password" placeholder="Password">
+                </div>
+    
+                
+            <div class="buttons-container">
+                <button class="button">Sign-up</button>
+                <button class="margin-top button">Log In</button>
+            </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
