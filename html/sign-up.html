@@ -34,22 +34,42 @@
 
     <div class="container-container">
         <div class="container">
-            <div>Create your account</div>
+            <div class="title">Create your account</div>
             
-            <div>
-                <div>First name:</div>
-                <input type="text" id="first-name" name="first-name">
-                <div>Last name:</div>
-                <input type="text" id="first-name" name="first-name">
-                <div>Email:</div>
-                <input type="text" id="first-name" name="first-name">
-                <div>Password:</div>
-                <input type="text" id="first-name" name="first-name">
-            </div>
+            <form action="../php/sign-up.php" method="post">
+
+                <div class="input-container">
+                    <div class="margin-top">First name:</div>
+                    <input class="input" type="text" name="first-name" placeholder="First Name">                
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Last name:</div>
+                    <input class="input" type="text" name="last-name" placeholder="Last Name">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Email:</div>
+                    <input class="input" type="text" name="emaill" placeholder="Email">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Password:</div>
+                    <input class="input" type="text" name="password" placeholder="Password">
+                </div>
     
-            <button>Sign-up</button>
-            <button>Log In</button>
+                
+            <div class="buttons-container">
+                <button class="button">Sign-up</button>
+                <button class="margin-top button">Log In</button>
+            </div>
+
+            </form>
         </div>
     </div>
+
+
+
+
 </body>
 </html>
