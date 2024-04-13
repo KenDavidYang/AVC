@@ -9,30 +9,28 @@
     <link rel="stylesheet" href="../css/sign-up.css">
 
     <script>
-        function validateForm() {
-            var firstName = document.forms["signupForm"]["first-name"].value;
-            var lastName = document.forms["signupForm"]["last-name"].value;
-            var email = document.forms["signupForm"]["email"].value;
-            var password = document.forms["signupForm"]["password"].value;
 
-            if (firstName == "" || lastName == "" || email == "" || password == "") {
+
+        function validateForm() {
+            var email = document.forms["loginForm"]["email"].value;
+            var password = document.forms["loginForm"]["password"].value;
+            
+            if (email == "" || password == "") {
                 alert("All fields must be filled out");
                 return false;
-            }
-
-            var emailRegex = /\S+@\S+\.\S+/;
-            if (!emailRegex.test(email)) {
-                alert("Invalid Email Address");
-                return false;
-            }
-
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long");
-                return false;
-            }
-
-            return true;
         }
+        }
+
+        window.onload = function() {
+        // Get the alert message from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const alertMessage = urlParams.get('alert');
+        
+        // If alert message exists, display it
+        if (alertMessage) {
+            alert(alertMessage);
+        }
+        };
 
 
     </script>
@@ -53,7 +51,7 @@
             <a href="sign-up.html">
                 <button class="button-sign-up">Sign Up</button>
             </a>
-            <a href="login.html">
+            <a href="log-in.html">
                 <button class="button-sign-up">Log In</button>
             </a>
         </div>
@@ -66,19 +64,9 @@
 
     <div class="container-container">
         <div class="container">
-            <div class="title">Create your account</div>
+            <div class="title">Login to your account</div>
             
-            <form name="signupForm" action="http://localhost" method="post" onsubmit="return validateForm()">
-
-                <div class="input-container">
-                    <div class="margin-top">First name:</div>
-                    <input class="input" type="text" name="first-name" placeholder="First Name">                
-                </div>
-
-                <div class="input-container">
-                    <div class="margin-top">Last name:</div>
-                    <input class="input" type="text" name="last-name" placeholder="Last Name">
-                </div>
+            <form name="loginForm" action="http://localhost" method="post" onsubmit="return validateForm()">
 
                 <div class="input-container">
                     <div class="margin-top">Email:</div>
@@ -90,12 +78,12 @@
                     <input class="input" type="password" name="password" placeholder="Password">
                 </div>
     
-                
                 <div class="buttons-container">
-                    <button class="button" type="submit" name="sign-up" value="sign-up">Sign Up</button>
+                    <button class="button" type="submit" name="login" value="login">Login</button>
                 </div>
 
             </form>
+
         </div>
     </div>
 </body>
