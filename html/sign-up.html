@@ -7,11 +7,38 @@
 
     <link rel="stylesheet" href="../css/navigation-bar.css">
     <link rel="stylesheet" href="../css/sign-up.css">
+
+    <script>
+        function validateForm() {
+            var firstName = document.forms["signupForm"]["first-name"].value;
+            var lastName = document.forms["signupForm"]["last-name"].value;
+            var email = document.forms["signupForm"]["email"].value;
+            var password = document.forms["signupForm"]["password"].value;
+
+            if (firstName == "" || lastName == "" || email == "" || password == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            var emailRegex = /\S+@\S+\.\S+/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid Email Address");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="navigation-bar">
         <a href="../index.html">
-            <img class="navigation-bar-img" src="../image/logo.jpg" alt="img">
+            <img class="navigation-bar-img" src="../image/default.png" alt="img">
         </a>
 
         <div class="navigation-bar-middle">
@@ -23,6 +50,9 @@
         <div>
             <a href="sign-up.html">
                 <button class="button-sign-up">Sign Up</button>
+            </a>
+            <a href="log-in.html">
+                <button class="button-sign-up">Log In</button>
             </a>
         </div>
     </div>
@@ -36,36 +66,35 @@
         <div class="container">
             <div class="title">Create your account</div>
             
-            <form action="http://localhost" method="post">
+            <form name="signupForm" action="submit_signup.php" method="post" onsubmit="return validateForm()">
 
                 <div class="input-container">
                     <div class="margin-top">First name:</div>
-                    <input class="input" id="firstName" type="text" name="first-name" placeholder="First Name">                
+                    <input class="input" type="text" name="first-name" placeholder="First Name">                
                 </div>
 
                 <div class="input-container">
                     <div class="margin-top">Last name:</div>
-                    <input class="input" id="lastName" type="text" name="last-name" placeholder="Last Name">
+                    <input class="input" type="text" name="last-name" placeholder="Last Name">
                 </div>
 
                 <div class="input-container">
                     <div class="margin-top">Email:</div>
-                    <input class="input" id="email" type="text" name="email" placeholder="Email">
+                    <input class="input" type="email" name="email" placeholder="Email">
                 </div>
 
                 <div class="input-container">
                     <div class="margin-top">Password:</div>
-                    <input class="input" id="password" type="password" name="password" placeholder="Password">
+                    <input class="input" type="password" name="password" placeholder="Password">
                 </div>
     
                 
-            <div class="buttons-container">
-                <button class="button" id="signupButton" type="submit" name="sign-up" value="sign-up">Sign-up</button>
-            </div>
+                <div class="buttons-container">
+                    <button class="button" type="submit" name="sign-up" value="sign-up">Sign Up</button>
+                </div>
 
             </form>
         </div>
     </div>
-
 </body>
 </html>
