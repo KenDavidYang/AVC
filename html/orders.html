@@ -6,6 +6,8 @@
     <title>Orders</title>
 
     <link rel="stylesheet" href="../css/navigation-bar.css">
+    <link rel="stylesheet" href="../css/orders.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 </head>
 <body>
     <div class="navigation-bar">
@@ -24,13 +26,49 @@
                 <button class="button-sign-up">Sign Up</button>
             </a>
         </div>
-    </div>v>
+    </div>
 
     <br>
     <br>
     <br>
     <br>
-
-    Orders
+    <main>
+        <aside>
+            <div >
+                <div class="order-nav">Checkout</div>
+                <div class="order-nav">Orders</div>
+                <div class="order-nav">Profile</div>
+                <div class="order-nav">Logout</div>
+            </div>
+        </aside>
+        <section class="sectionCon">
+            <form action="" method="">
+            <div class="box">
+                <label for="Service Type" class="Orlabel">Service Type:</label>
+                <select name="orders" id="orders" class="selection" placeholder="Choose Service">
+                    <option>Books</option>
+                    <option>Yearbook</option>
+                    <option>Journal</option>
+                    <option>Magazine</option>
+                </select>
+            </div>
+            <div class="box">
+                <label for="Paper Type" class="Orlabel">Paper Size:</label>
+                <select name="paper" id="paper" class="selection" placeholder="Choose Paper Size">
+                    <option>8.5"x 11"</option>
+                    <option>4 x 9</option>
+                    <option>9" x 12</option>
+                    <option>9" x 4"</option>
+                </select>
+            </div>
+            <div class="box">
+                <label for="Quantity" class="Orlabel">Quantity:</label>
+                <input type="number" id="Quantity" class="selection" placeholder="Enter Quantity">     
+            </div>
+            </form>
+            <br>
+            <button class="checkout">Checkout</button>
+        </section>
+        
+    </main>
 </body>
-</html>
