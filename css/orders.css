@@ -41,8 +41,8 @@ section{
 
 }
 .sectionCon{
-    padding: 37px 52px 30px 52px;
-    margin: 0px 0px 0px 10px;
+    display: flex;
+    flex-direction: column;
 }
 .selection{
     width: 173px;
@@ -58,10 +58,7 @@ section{
     font-size: 16px;
 }
 .checkout{
-    text-align: center;
-    min-width: 296px;
-    height: 50px;
-    padding: 16px 16px 16px 16px;
+    padding: 15px;
     cursor: pointer;
     background-color: #f37028;
     font-weight: 600;
@@ -69,11 +66,13 @@ section{
     border: none;
     color: white;
     border-radius: 10px;
-    display: inline-block;
-    vertical-align: center;
-    margin-left: 126.87px;
     margin-top: 130px;
 }
 .checkout:hover{
     opacity: 0.5;
+}
+
+.group-label-option {
+    display: flex;
+    justify-content: space-evenly;
 }
