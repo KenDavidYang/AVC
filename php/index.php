@@ -18,6 +18,7 @@ $connect = mysqli_connect (
 
 
 //database connection
+// if value=sign-up button pressed go here
 if(isset($_POST['sign-up'])){
 
     $firstName = $_POST['first-name'];
@@ -49,6 +50,7 @@ function login($password, $hashedPassword) {
     }
 }
 
+// if html value=login button pressed go here
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
