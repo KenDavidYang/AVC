@@ -42,30 +42,80 @@
             </div>
         </aside>
         <section class="sectionCon">
-            <form action="" method="">
-            <div class="box">
-                <label for="Service Type" class="Orlabel">Service Type:</label>
-                <select name="orders" id="orders" class="selection" placeholder="Choose Service">
-                    <option>Books</option>
-                    <option>Yearbook</option>
-                    <option>Journal</option>
-                    <option>Magazine</option>
-                </select>
+
+            <div class="group-label-option">
+                <div class="labels">
+                    <div>Service Type:</div>
+                    <div>Paper Size:</div>
+                    <div>Paper Type:</div>
+                    <div>Color:</div>
+                    <div>Number of Pages:</div>
+                    <div>Quantity:</div>
+                    <div>Finishing:</div>
+                    <div>Cover type:</div>
+                </div>
+                
+                <div class="options">
+                    <form action="http://localhost" method="POST">
+                        <div class="stype">
+                            <select name="orders" id="orders" class="selection" placeholder="Choose Service">
+                                <option value="book">Book</option>
+                                <option value="yearbook">Yearbook</option>
+                                <option value="journal">Journal</option>
+                                <option value="magazine">Magazine</option>
+                                <option value="calendar">Calendar</option>
+                            </select>
+                        </div>
+                        <div class="psize">
+                            <select name="paper size" id="paper size" class="selection" placeholder="Choose Paper Size">
+                                <option>Letter / 8.5" x 11"</option>
+                                <option>A4 / 8.3 x 11.7</option>
+                                <option>4" x 9"</option>
+                                <option>9" x 12"</option>
+                                <option>9" x 4"</option>
+                                <option>18" x 36"</option>
+                                <option>10" x 12"</option>
+                                <option value="custom">Custom Size</option>
+                            </select>
+                        </div>
+                        <div class="ptype">
+                        <select name="paper type" id="paper type" class="selection" placeholder="Choose Paper Type">
+                            <option>Newsprint</option>
+                            <option>Bookpaper</option>
+                            <option>Mechanical Bond</option>
+                        </select>
+                        </div>
+                        <div class="color">
+                            <select name="color" id="orders" class="selection" placeholder="Choose Color type">
+                                <option>Black & White</option>
+                                <option>Dual-Colored</option>
+                                <option>Tri-Colored</option>
+                                <option>Full-Colored</option>
+                            </select>
+                        </div>
+                        <div class="pages">
+                            <input type="number" id="Pages" class="selection" placeholder="Number of Pages" max="20,000">     
+                        </div>
+                        <div class="quantity">
+                            <input type="number" id="Quantity" class="selection" placeholder="Enter Quantity" max="20,000">     
+                        </div>
+                        <div class="finishing">
+                            <select name="finishing" id="finishing" class="selection" placeholder="Choose Finishing Type">
+                                <option>Laminated</option>
+                                <option>Matted</option>
+                            </select>
+                        </div>
+                        <div class="cover">
+                            <select name="cover" id="cover" class="selection" placeholder="Choose Cover Type">
+                                <option>Inside-front cover</option>
+                                <option>Inside-back cover</option>
+                            </select>
+                        </div>
+                        </form>
+                </div>
             </div>
-            <div class="box">
-                <label for="Paper Type" class="Orlabel">Paper Size:</label>
-                <select name="paper" id="paper" class="selection" placeholder="Choose Paper Size">
-                    <option>8.5"x 11"</option>
-                    <option>4 x 9</option>
-                    <option>9" x 12</option>
-                    <option>9" x 4"</option>
-                </select>
-            </div>
-            <div class="box">
-                <label for="Quantity" class="Orlabel">Quantity:</label>
-                <input type="number" id="Quantity" class="selection" placeholder="Enter Quantity">     
-            </div>
-            </form>
+
+            
             <br>
             <button class="checkout">Checkout</button>
         </section>
