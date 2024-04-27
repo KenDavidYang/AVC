@@ -1,0 +1,47 @@
+footer{
+    background-color:rgb(232, 154, 9);
+    display: block;
+    clear: both;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    border: 1px solid black;
+    padding: 18px;
+    font-size: 22px;
+    color: black;
+    letter-spacing: 2px;
+    line-height: 30px;
+    }
+section{
+    height: 1000px;
+    margin: 0;
+}
+.aboutus{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    padding: 20px 0 20px 0;
+}
+.aboutTItle{
+    padding-top: 20px;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    display: absolute;
+    position: relative;
+}
+.img1{
+    margin: 0;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+h1:after{
+    content: "";
+    position: absolute;
+    top: 122%;
+    left: 10%;
+    height: 1px;
+    width: 80%;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
