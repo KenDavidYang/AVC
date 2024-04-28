@@ -34,31 +34,33 @@
     <br>
     <main>
         <aside>
-            <div >
+            <div>
                 <div class="order-nav">Checkout</div>
                 <div class="order-nav">Orders</div>
                 <div class="order-nav">Profile</div>
                 <div class="order-nav">Logout</div>
             </div>
         </aside>
-        <section class="sectionCon">
 
-            <div class="group-label-option">
-                <div class="labels">
-                    <div>Service Type:</div>
-                    <div>Paper Size:</div>
-                    <div>Paper Type:</div>
-                    <div>Color:</div>
-                    <div>Number of Pages:</div>
-                    <div>Quantity:</div>
-                    <div>Finishing:</div>
-                    <div>Cover type:</div>
-                </div>
-                
-                <div class="options">
-                    <form action="http://localhost" method="POST">
+        
+        <section class="sectionCon">
+            <form action="http://localhost" method="POST">
+                <div class="group-label-option-button">
+                    <div class="group-label-option">
+                        <div class="labels">
+                            <div>Service Type:</div>
+                            <div>Paper Size:</div>
+                            <div>Paper Type:</div>
+                            <div>Color:</div>
+                            <div>Number of Pages:</div>
+                            <div>Quantity:</div>
+                            <div>Finishing:</div>
+                            <div>Cover type:</div>
+                        </div>
+                    
+                        <div class="options">
                         <div class="stype">
-                            <select name="orders" id="orders" class="selection" placeholder="Choose Service">
+                            <select name="service-type" class="selection" placeholder="Choose Service">
                                 <option value="book">Book</option>
                                 <option value="yearbook">Yearbook</option>
                                 <option value="journal">Journal</option>
@@ -67,7 +69,7 @@
                             </select>
                         </div>
                         <div class="psize">
-                            <select name="paper size" id="paper size" class="selection" placeholder="Choose Paper Size">
+                            <select name="paper-size" class="selection" placeholder="Choose Paper Size">
                                 <option>Letter / 8.5" x 11"</option>
                                 <option>A4 / 8.3 x 11.7</option>
                                 <option>4" x 9"</option>
@@ -79,14 +81,14 @@
                             </select>
                         </div>
                         <div class="ptype">
-                        <select name="paper type" id="paper type" class="selection" placeholder="Choose Paper Type">
+                        <select name="paper-type" class="selection" placeholder="Choose Paper Type">
                             <option>Newsprint</option>
                             <option>Bookpaper</option>
                             <option>Mechanical Bond</option>
                         </select>
                         </div>
                         <div class="color">
-                            <select name="color" id="orders" class="selection" placeholder="Choose Color type">
+                            <select name="color" class="selection" placeholder="Choose Color type">
                                 <option>Black & White</option>
                                 <option>Dual-Colored</option>
                                 <option>Tri-Colored</option>
@@ -94,31 +96,28 @@
                             </select>
                         </div>
                         <div class="pages">
-                            <input type="number" id="Pages" class="selection" placeholder="Number of Pages" max="20,000">     
+                            <input name="number-of-pages" type="number" class="selection" placeholder="Number of Pages" max="20000">     
                         </div>
                         <div class="quantity">
-                            <input type="number" id="Quantity" class="selection" placeholder="Enter Quantity" max="20,000">     
+                            <input name="quantity" type="number" class="selection" placeholder="Enter Quantity" max="20000">     
                         </div>
                         <div class="finishing">
-                            <select name="finishing" id="finishing" class="selection" placeholder="Choose Finishing Type">
+                            <select name="finish" class="selection" placeholder="Choose Finishing Type">
                                 <option>Laminated</option>
-                                <option>Matted</option>
+                            <option>Matted</option>
                             </select>
                         </div>
                         <div class="cover">
-                            <select name="cover" id="cover" class="selection" placeholder="Choose Cover Type">
+                        <select name="cover-type" class="selection" placeholder="Choose Cover Type">
                                 <option>Inside-front cover</option>
-                                <option>Inside-back cover</option>
+                            <option>Inside-back cover</option>
                             </select>
                         </div>
-                        </form>
+                        </div>
+                    </div>
+                    <button class="checkout" type="submit" name="order">Checkout</button>
                 </div>
-            </div>
-
-            
-            <br>
-            <button class="checkout">Checkout</button>
+            </form>
         </section>
-        
     </main>
 </body>

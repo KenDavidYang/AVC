@@ -19,7 +19,7 @@
                 alert("All fields must be filled out");
                 return false;
         }
-        }
+        }z
 
         window.onload = function() {
         // Get the alert message from URL parameter
@@ -51,9 +51,6 @@
             <a href="sign-up.html">
                 <button class="button-sign-up">Sign Up</button>
             </a>
-            <a href="log-in.html">
-                <button class="button-sign-up">Log In</button>
-            </a>
         </div>
     </div>
 
@@ -77,7 +74,11 @@
                     <div class="margin-top">Password:</div>
                     <input class="input" type="password" name="password" placeholder="Password">
                 </div>
-    
+                
+                <div style="text-align: center; margin: 0 0 30px 0;">
+                    Don't have an account? <a href="./sign-up.html">Sign Up.</a>
+                </div>
+
                 <div class="buttons-container">
                     <button class="button" type="submit" name="login" value="login">Login</button>
                 </div>
