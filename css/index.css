@@ -13,19 +13,7 @@ body {
     object-fit: cover;
     filter: brightness(60%) blur(2px);
 }
-footer{
-background-color:rgb(232, 154, 9);
-display: block;
-clear: both;
-text-align: left;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-border: 1px solid black;
-padding: 18px;
-font-size: 22px;
-color: black;
-letter-spacing: 2px;
-line-height: 30px;
-}
+
 .about-us-img {
     object-fit: contain;
     min-width:0;
@@ -42,5 +30,6 @@ line-height: 30px;
     font: sans-serif;
     color: rgb(255, 255, 255);
     flex-basis: 100%;
+    margin-left: 2%;
 }
 
