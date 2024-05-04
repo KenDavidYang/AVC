@@ -6,8 +6,9 @@ body {
 
 }
 .footer-bar{
+    display: flex;
     line-height: 12px;
-    margin-top: 5%;
+    margin-top: 20px;
     width: 100%;
     bottom: 0;
     background-color:rgb(232, 154, 9);
