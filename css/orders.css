@@ -2,12 +2,10 @@
     box-sizing: border-box;
 }
 body{
-    height: 600px;
-}
-main{
-    height: 100%;
+    height: 700px;
 }
 aside{
+
     width: 30%;
     height: auto;
     float: left;
@@ -26,7 +24,7 @@ section{
     border: 1px solid grey;
     border-radius: 8px;
     height: 50px;
-    width: 97%;
+    width: 100%;
     cursor: pointer;
     justify-content: space-between;
     position: relative;
@@ -35,19 +33,18 @@ section{
     flex-direction: row;
     flex-wrap: nowrap;
     margin: 0px 5px 10px 5px;
+    
 }
 .order-nav:hover{
     background-color: white;
     color: black;
+
 }
 .selection{
-    margin-bottom: 8px;
     width: 173px;
     height: 20px;
     float: right;
-}
-.label{
-    margin-bottom: 9.5px;
+    
 }
 .box{
     margin-left: 10px;
@@ -65,7 +62,7 @@ section{
     border: none;
     color: white;
     border-radius: 10px;
-    margin-top: 12%;
+    margin-top: 130px;
 }
 .checkout:hover{
     opacity: 0.5;
