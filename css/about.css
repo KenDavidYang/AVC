@@ -1,24 +1,15 @@
-footer{
-    background-color:rgb(232, 154, 9);
-    display: block;
-    clear: both;
-    text-align: left;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-    border: 1px solid black;
-    padding: 18px;
-    font-size: 22px;
-    color: black;
-    letter-spacing: 2px;
-    line-height: 30px;
-    }
 section{
-    height: 1000px;
+    height: 1200px;
     margin: 0;
 }
-.aboutus{
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+.par{
+    font-size: 20px;
+    line-height: 30px;
+}
+.about-con{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
     padding: 20px 0 20px 0;
 }
 .aboutTItle{
@@ -39,9 +30,9 @@ h1:after{
     content: "";
     position: absolute;
     top: 122%;
-    left: 10%;
+    left: 14%;
     height: 1px;
-    width: 80%;
+    width: 72%;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.7);
 }
