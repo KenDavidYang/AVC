@@ -5,7 +5,6 @@ body{
     height: 700px;
 }
 aside{
-
     width: 30%;
     height: auto;
     float: left;
@@ -17,35 +16,17 @@ section{
     margin-bottom: 20px;
     width: 68%;
     float: left;
-    height: 400px;
-}
-.order-nav{
-    font: 16px /*montserrat, sans-serif*/;
-    align-items: center;
-    border: 1px solid grey;
-    border-radius: 8px;
-    height: 50px;
-    width: 97%;
-    cursor: pointer;
-    justify-content: space-between;
-    position: relative;
-    padding: 10px 10px 10px 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin: 0px 5px 10px 5px;
-    
-}
-.order-nav:hover{
-    background-color: white;
-    color: black;
-
+    height: 425px;
 }
 .selection{
+    margin-bottom: 8px;
     width: 173px;
     height: 20px;
     float: right;
     
+}
+.label{
+    margin-bottom: 9.5px;
 }
 .box{
     margin-left: 10px;
