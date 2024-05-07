@@ -35,26 +35,3 @@ section{
 .Orlabel{
     font-size: 16px;
 }
-.checkout{
-    padding: 15px;
-    cursor: pointer;
-    background-color: #f37028;
-    font-weight: 600;
-    font-size: 18px;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    margin-top: 130px;
-}
-.checkout:hover{
-    opacity: 0.5;
-}
-
-.group-label-option-button {
-    display: flex;
-    flex-direction: column;
-}
-.group-label-option {
-    display: flex;
-    justify-content: space-evenly;
-}
