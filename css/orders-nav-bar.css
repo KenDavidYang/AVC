@@ -1,3 +1,10 @@
+aside{
+    width: 29%;
+    margin-left: 10px;
+    height: auto;
+    float: left;
+    display: block;
+}
 .order-nav{
     font: 16px /*montserrat, sans-serif*/;
     align-items: center;

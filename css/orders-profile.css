@@ -2,46 +2,31 @@
     box-sizing: border-box;
 }
 body{
-    height: 800px;
-}
-aside{
-    width: 30%;
     height: auto;
-    float: left;
-    display: block;
+    margin-top: 20px;
 }
 section{
     border: 1px  #d1d1d1;
-    padding: 0px 10px 10px 10px;
-    margin-bottom: 20px;
-    width: 68%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 0px 10px 10px 0px;
+    width: 69%;
     float: left;
     height: auto;
     justify-content: space-between;
 }
 .profile-con{
     border: 1px solid #d1d1d1;
-    height: auto;
-    padding: 10px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    overflow: auto;
-}
-.profile-labels{
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-input{
-    width: 350px;
-    padding: 10px;
-    font-size: 13px;
-    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    padding: 0px 10px 10px;
     border-radius: 10px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .profile-button{
     float: right;
-    height: 35px;
+    margin-left: 85%;
+    height: 37px;
     padding: 0 20px;
     width: auto;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -54,4 +39,31 @@ input{
 }
 .profile-button:hover{
     opacity: 0.5;
+}
+input{
+    width: 350px;
+    padding: 10px;
+    font-size: 13px;
+    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.form-label{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.col{
+    overflow: auto;
+    display: flex;
+    column-gap: 10px;
+}
+.profile-label{
+    font-size: 19px;
+    font-weight: 500;
+    width: 100px;
+    margin: 0px 20px 30px 30px;
+    padding-bottom: 20px;
+}
+.for{
+
 }
