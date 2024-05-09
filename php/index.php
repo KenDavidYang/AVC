@@ -26,6 +26,16 @@ if(isset($_POST['sign-up'])){
     $lastName = $_POST['last-name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $houseNum = $_POST['house-num'];
+    $street = $_POST['street'];
+    $barangay = $_POST['barangay'];
+    $province = $_POST['province'];
+    $city = $_POST['city'];
+    $zipCode = $_POST['zip-code'];
+    $zipCode = intval($zipCode);
+    $phoneNum = $_POST['phone-num'];
+    $phoneNum = intval($phoneNum);
+    $phoneNum = $_POST['phone-num'];
 
     $options = [
         'cost' => 12,
@@ -33,7 +43,9 @@ if(isset($_POST['sign-up'])){
     $hash = password_hash($password, PASSWORD_BCRYPT, $options);
 
     $query_signup = "INSERT INTO account(firstName, lastName, email, password) VALUES('$firstName','$lastName','$email','$hash')";
+    $query_address = "INSERT INTO address(email, houseNumber, street, barangay, province, city, zipCode, phoneNumber) VALUES('$email', '$houseNum', '$street', '$barangay', '$province', '$city', '$zipCode', '$phoneNum')";
     $query_signup = mysqli_query($connect, $query_signup);
+    $query_address = mysqli_query($connect, $query_address);
 
     if($query_signup){
         header("Location: http://localhost:8080");

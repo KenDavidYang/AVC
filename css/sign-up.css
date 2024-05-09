@@ -3,6 +3,15 @@
     justify-content: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: orange;
+    border-radius: 10px;
+    width: 50%;
+}
+
 .margin-top {
     margin-top: 30px;
 }
@@ -17,15 +26,9 @@
 input {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
-    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    margin-bottom: 10px;
+    box-sizing: border-box;
     border-radius: 10px;
-}
-
-.container {
-    background-color: orange;
-    border-radius: 10px;
-    padding: 5vw 10vw;
 }
 
 .buttons-container {
@@ -35,8 +38,16 @@ input {
 }
 
 .input-container {
-    width: 80%;
-    margin: 50px auto;
+    width: 100%;
+}
+
+.address-input{
+    display: flex;
+    gap: 20px;
+}
+
+.address-input-row{
+    flex: 1;
 }
 
 .button {
@@ -49,6 +60,7 @@ input {
     border-radius: 10px;
     transition: 0.5s;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .button:hover {
