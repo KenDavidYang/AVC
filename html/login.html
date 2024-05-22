@@ -19,25 +19,21 @@
                 alert("All fields must be filled out");
                 return false;
         }
-        }z
+        }
 
-        window.onload = function() {
-        // Get the alert message from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
         const alertMessage = urlParams.get('alert');
-        
-        // If alert message exists, display it
+
+        // Display the alert message if it exists
         if (alertMessage) {
             alert(alertMessage);
         }
-        };
-
 
     </script>
 </head>
 <body>
     <div class="navigation-bar">
-        <a href="../index.html">
+        <a href="./index.html">
             <img class="navigation-bar-img" src="../image/logo.jpg" alt="img">
         </a>
 
