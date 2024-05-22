@@ -1,22 +1,12 @@
 <?php
 ob_start();
+session_start();
 $connect = mysqli_connect (
     "db", #service name 
     "php_docker", # username
     "password", #password
     "php_docker" #db table
 );
-
-
-
-function login($password, $hashedPassword) {
-    if(password_verify($password, $hashedPassword)) {
-        header("Location: http://localhost:8080");
-    } else {
-        $alert_message = "wrong password!";
-        header("Location: http://localhost:8080/html/login.html?alert=" . urlencode($alert_message));
-    }
-}
 
 //database connection
 // if value=sign-up button pressed go here
@@ -48,7 +38,8 @@ if(isset($_POST['sign-up'])){
     $query_address = mysqli_query($connect, $query_address);
 
     if($query_signup){
-        header("Location: http://localhost:8080");
+        header("Location: http://localhost/html/index.html");
+        exit();
     } else {
         echo "data not inserted";
     }
@@ -59,13 +50,22 @@ if(isset($_POST['login'])){
 
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $query_login = "SELECT password FROM account WHERE email='$email'";
+    $query_login = "SELECT ID, password FROM account WHERE email='$email'";
 
     // takes a row with the email and fetches the database password
     $query_login = mysqli_query($connect, $query_login);
     $row = mysqli_fetch_row($query_login);
-    $databasePassword = $row[0];
-    login($password, $databasePassword);
+    $databasePassword = $row[1];
+    
+    if(password_verify($password, $databasePassword)){
+        $_SESSION['user_id'] = intval($row[0]);
+        header("Location: http://localhost/html/index.html");
+        exit();
+    } else {
+        $alert_message = "wrong password!";
+        header("Location: http://localhost/index.html/html/login.html?alert=" . urlencode($alert_message));
+        exit();
+    }
 }
 
 if(isset($_POST['order'])){
@@ -86,15 +86,12 @@ if(isset($_POST['order'])){
 
     // redirect to main page if no problem
     if($query_order_input){
-        header("Location: http://localhost:8080");
+        header("Location: http://localhost/html/index.html");
+        exit();
     } else {
         echo "data not inserted";
     }
 }
-
-
-
 #$stmt = $connect->prepare("INSERT INTO registration(firstName, lastName, email, password) values(:firstname,:lastName,:email,:password)");
 #$stmt->bindParam(":firstname", $firstName, PDO::PARAM_STR);
-
 ?>
