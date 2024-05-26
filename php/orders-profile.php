@@ -99,15 +99,21 @@ session_start();
                 <h1 class="profile-title">Profile</h1>  
                 <div class="col">
                     <div class="profile-label">Last&nbsp;Name</div>
-                    <?php echo "<div class='for'>$lastName</div>" ?>
+                    <?php if (isset($lastName)) {
+                        echo "<div class='for'>$lastName</div>";
+                    }  ?>
                 </div>
                 <div class="col">
                     <div class="profile-label">First&nbsp;Name</div>
-                    <?php echo "<div class='for'>$firstName</div>" ?>
+                    <?php if (isset($firstName)) {
+                        echo "<div class='for'>$firstName</div>";
+                    }  ?>
                 </div>
                 <div class="col">
                     <div class="profile-label">E-mail</div>
-                     <?php echo $email ?>
+                     <?php if (isset($email)) {
+                      echo "<div class='for>$email</div>"; 
+                    } ?>
                 </div>
             </div>
         
@@ -132,40 +138,54 @@ session_start();
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">House/Building No.</div>
-                        <?php echo "<div type='text' class='form-control mb-1'>$houseNumber</div>" ?>
+                        <?php if (isset($houseNumber)) { 
+                            echo "<div type='text' class='form-control mb-1'>$houseNumber</div>"; 
+                        } ?>
                     </div>
                     <div class="form-group">
                         <div class="form-label">Street</div>
-                       <?php echo "<div type='text' class='form-control'>$street</div>" ?>
+                       <?php if (isset($street)) {
+                            echo "<div type='text' class='form-control'>$street</div>";
+                        } ?>
                     </div>
                 </div>
                         
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">Barangay</div>
-                        <?php echo "<div type='text' class='form-control'>$barangay</div>" ?>
+                        <?php if (isset($baran)) {
+                            echo "<div type='text' class='form-control'>$barangay</div>"; 
+                        } ?>
                         </div>
                     <div class="form-group">
                         <div class="form-label">Province</div>
-                        <?php echo "<div type='text' class='form-control mb-1'>$province</div>" ?>
+                        <?php if (isset($province)) {
+                            echo "<div type='text' class='form-control mb-1'>$province</div>";
+                        } ?>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">City</div>
-                        <?php echo "<div type='text' class='form-control'>$city</div>" ?>
+                        <?php if(isset($city)) {
+                            echo "<div type='text' class='form-control'>$city</div>";
+                        } ?>
                     </div>
                     <div class="form-group">
                         <div class="form-label">Zip Code</div>
-                        <?php echo "<div type='text' class='form-control'>$zipCode</div>" ?>
+                        <?php if(isset($zipCode)) {
+                            echo "<div type='text' class='form-control'>$zipCode</div>";
+                        } ?>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">Phone/Landline No.</div>
-                        <?php echo "<div type='tel' class='form-control' placeholder='09123456789 or 1234-6547'>$phoneNumber</div>" ?>
+                        <?php if(isset($phoneNumber)) {
+                            echo "<div type='tel' class='form-control'>$phoneNumber</div>";
+                        } ?>
                     </div>
                 </div>
                 <button class="profile-button">Save</button> 
