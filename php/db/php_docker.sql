@@ -45,12 +45,12 @@ CREATE TABLE `address` (
   `ID` int NOT NULL,
   `email` varchar(255) NOT NULL,
   `houseNumber` varchar(255) NOT NULL,
-  `street` int NOT NULL,
+  `street` varchar(255) NOT NULL,
   `barangay` varchar(255) NOT NULL,
   `province` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `zipCode` int NOT NULL,
-  `phoneNumber` int NOT NULL
+  `phoneNumber` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
