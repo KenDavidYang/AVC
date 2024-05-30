@@ -84,9 +84,8 @@ if(isset($_POST['order'])){
     VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType')";
     $query_order_input = mysqli_query($connect, $query_order_input);
 
-    // redirect to main page if no problem
     if($query_order_input){
-        header("Location: http://localhost/html/index.html");
+        header("Location: http://localhost/html/orders-orders.html");
         exit();
     } else {
         echo "data not inserted";
