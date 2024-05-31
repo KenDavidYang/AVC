@@ -112,7 +112,7 @@ session_start();
                 <div class="col">
                     <div class="profile-label">E-mail</div>
                      <?php if (isset($email)) {
-                      echo "<div class='for>$email</div>"; 
+                      echo "<div class='for'>$email</div>"; 
                     } ?>
                 </div>
             </div>
@@ -153,7 +153,7 @@ session_start();
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">Barangay</div>
-                        <?php if (isset($baran)) {
+                        <?php if (isset($barangay)) {
                             echo "<div type='text' class='form-control'>$barangay</div>"; 
                         } ?>
                         </div>
