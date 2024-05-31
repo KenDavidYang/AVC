@@ -49,6 +49,7 @@ if(isset($_POST['sign-up'])){
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
+    $_SESSION['email'] = $email;
     $password = $_POST['password'];
     $query_login = "SELECT ID, password FROM account WHERE email='$email'";
 
@@ -80,7 +81,7 @@ if(isset($_POST['order'])){
     $coverType = $_POST['cover-type'];
 
     // declares mysql query and runs it
-    $query_order_input = "INSERT INTO orders(service_type, paper_size, paper_type, color, number_of_pages, quantity, finish, cover_type) 
+    $query_order_input = "INSERT INTO orders(serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType) 
     VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType')";
     $query_order_input = mysqli_query($connect, $query_order_input);
 
