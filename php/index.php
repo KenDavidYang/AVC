@@ -49,6 +49,7 @@ if(isset($_POST['sign-up'])){
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
+    $_SESSION['email'] = $email;
     $password = $_POST['password'];
     $query_login = "SELECT ID, password FROM account WHERE email='$email'";
 
@@ -69,7 +70,16 @@ if(isset($_POST['login'])){
 }
 
 if(isset($_POST['order'])){
-    // putting input from order.html and puts it in a variable
+    // Retrieve email from session
+    $email = $_SESSION['email']; // Assuming you stored the email in the session during login or sign-up
+
+    // Check if email is available in session
+    if(!isset($email) || empty($email)) {
+        echo "Email not found in session.";
+        exit(); // Exit if email is not available
+    }
+
+    // Retrieve other order details
     $serviceType = $_POST['service-type'];
     $paperSize = $_POST['paper-size'];
     $paperType = $_POST['paper-type'];
@@ -79,16 +89,18 @@ if(isset($_POST['order'])){
     $finish = $_POST['finish'];
     $coverType = $_POST['cover-type'];
 
-    // declares mysql query and runs it
-    $query_order_input = "INSERT INTO orders(serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType) 
-    VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType')";
+    // Declare MySQL query and run it
+    $query_order_input = "INSERT INTO orders(email, serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType) 
+    VALUES('$email', '$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType')";
+
     $query_order_input = mysqli_query($connect, $query_order_input);
 
+    // Redirect to main page if no problem
     if($query_order_input){
-        header("Location: http://localhost/html/orders-orders.html");
+        header("Location: http://localhost/html/index.html");
         exit();
     } else {
-        echo "data not inserted";
+        echo "Error: " . mysqli_error($connect);
     }
 }
 #$stmt = $connect->prepare("INSERT INTO registration(firstName, lastName, email, password) values(:firstname,:lastName,:email,:password)");
