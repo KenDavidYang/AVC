@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+$server = "localhost";
 $connect = mysqli_connect (
     "db", #service name 
     "php_docker", # username
@@ -38,7 +39,7 @@ if(isset($_POST['sign-up'])){
     $query_address = mysqli_query($connect, $query_address);
 
     if($query_signup){
-        header("Location: http://localhost/html/index.html");
+        header("Location: http://localhost/html/login.html");
         exit();
     } else {
         echo "data not inserted";
@@ -49,7 +50,6 @@ if(isset($_POST['sign-up'])){
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
-    $_SESSION['email'] = $email;
     $password = $_POST['password'];
     $query_login = "SELECT ID, password FROM account WHERE email='$email'";
 
@@ -70,6 +70,7 @@ if(isset($_POST['login'])){
 }
 
 if(isset($_POST['order'])){
+
     // Retrieve email from session
     $email = $_SESSION['email']; // Assuming you stored the email in the session during login or sign-up
 
@@ -89,18 +90,62 @@ if(isset($_POST['order'])){
     $finish = $_POST['finish'];
     $coverType = $_POST['cover-type'];
 
-    // Declare MySQL query and run it
-    $query_order_input = "INSERT INTO orders(email, serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType) 
-    VALUES('$email', '$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType')";
 
-    $query_order_input = mysqli_query($connect, $query_order_input);
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $Filetype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Redirect to main page if no problem
-    if($query_order_input){
-        header("Location: http://localhost/html/index.html");
-        exit();
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 10000000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats
+    $allowed_types = array("jpg", "jpeg", "png", "pdf");
+    if (!in_array($Filetype, $allowed_types)) {
+        ?>
+        <script> 
+        alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+        </script>
+        <?php
+        //echo ;
+        $uploadOk = 0;
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        
+    // If everything is ok, try to upload file
     } else {
-        echo "Error: " . mysqli_error($connect);
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+
+            $filename = $_FILES["fileToUpload"]["name"];
+            $filesize = $_FILES["fileToUpload"]["size"];
+            $filetype = $_FILES["fileToUpload"]["type"];
+
+            // Declare MySQL query and run it
+            $query_order_input = "INSERT INTO orders(serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType, filename, filesize, filetype) 
+            VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType', '$filename', '$filesize', '$filetype')";
+            $query_order_input = mysqli_query($connect, $query_order_input);
+        } else {
+            ?>
+            <script> 
+                alert ("Sorry, there was an error uploading your file.");
+            </script>
+            <?php
+        }
+        // Redirect to main page if no problem
+        if($query_order_input){
+            header("Location: http://localhost/html/orders-orders.html");
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($connect);
+    }
     }
 }
 #$stmt = $connect->prepare("INSERT INTO registration(firstName, lastName, email, password) values(:firstname,:lastName,:email,:password)");

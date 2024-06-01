@@ -72,8 +72,8 @@ session_start();
         </div>
 
         <div>
-            <a href="./html/sign-up.html">
-                <button class="button-sign-up">Sign Up</button>
+            <a href="./html/login.html">
+                <button class="button-sign-up">Log In</button>
             </a>
         </div>
     </div>
