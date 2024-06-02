@@ -7,33 +7,6 @@
 
     <link rel="stylesheet" href="../css/navigation-bar.css">
     <link rel="stylesheet" href="../css/sign-up.css">
-
-    <script>
-        function validateForm() {
-            var firstName = document.forms["signupForm"]["first-name"].value;
-            var lastName = document.forms["signupForm"]["last-name"].value;
-            var email = document.forms["signupForm"]["email"].value;
-            var password = document.forms["signupForm"]["password"].value;
-
-            if (firstName == "" || lastName == "" || email == "" || password == "") {
-                alert("All fields must be filled out");
-                return false;
-            }
-
-            var emailRegex = /\S+@\S+\.\S+/;
-            if (!emailRegex.test(email)) {
-                alert("Invalid Email Address");
-                return false;
-            }
-
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </head>
 <body>
     <div class="navigation-bar">
@@ -62,14 +35,71 @@
     <div class="container-container">
         <div class="container">
             <div class="title">Create your account</div>
-
-            <?php if($email_used): ?>
-                <div style="color: red; text-align: center;">Email is already used. Please choose a different one.</div>
-            <?php endif; ?>
-
             <form name="signupForm" action="http://localhost" method="POST" onsubmit="return validateForm()">
 
-                <!-- Rest of the form content -->
+                <div class="input-container">
+                    <div class="margin-top">First name:</div>
+                    <input class="input" type="text" name="first-name" placeholder="First Name">                
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Last name:</div>
+                    <input class="input" type="text" name="last-name" placeholder="Last Name">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Email:</div>
+                    <input class="input" type="email" name="email" placeholder="Email">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Password:</div>
+                    <input class="input" type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="address-input">
+                    <div class="input-container">
+                        <div class="margin-top">House/Building No.</div>
+                        <input class="input" type="text" name="house-num" placeholder="ex: B66 L6">
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">Street</div>
+                        <input class="input" type="text" name="street" placeholder="ex: Catacutan">
+                    </div>
+                </div>
+
+                <div class="address-input">
+                    <div class="input-container">
+                        <div class="margin-top">Barangay</div>
+                        <input class="input" type="text" name="barangay" placeholder="ex: Aspect">
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">Province</div>
+                        <input class="input" type="text" name="province" placeholder="ex: Northern Pole">
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">City</div>
+                        <input class="input" type="text" name="city" placeholder="ex: Demacia">
+                    </div>
+                </div>
+                <div class="address-input">
+                    <div class="input-container">
+                        <div class="margin-top">Zip Code</div>
+                        <input class="input" type="text" name="zip-code" placeholder="ex: 9999">
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">Phone/Landline No.</div>
+                        <input class="input" type="text" name="phone-num" placeholder="ex: 09195559324">
+                    </div>
+                </div>
+    
+                <div style="text-align: center; margin: 0 0 30px 0;">
+                    Already have an account? <a href="./login.html">Login.</a>
+                </div>
+
+                <div class="buttons-container">
+                    <button class="button" type="submit" name="sign-up" value="sign-up">Sign Up</button>
+                </div>
 
             </form>
         </div>
