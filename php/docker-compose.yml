@@ -6,6 +6,7 @@ services:
       - "../css:/var/www/html/css"
       - "../html:/var/www/html/html"
       - "../image:/var/www/html/image"
+      - "../three:/var/www/html/three"
       - "./:/var/www/html"
     ports:
       - 80:80
