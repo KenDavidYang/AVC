@@ -9,8 +9,9 @@ $connect = mysqli_connect (
 );
 
 //database connection
-// If sign-up button is pressed
+// if value=sign-up button pressed go here
 if(isset($_POST['sign-up'])){
+
     $firstName = $_POST['first-name'];
     $lastName = $_POST['last-name'];
     $email = $_POST['email'];
@@ -20,35 +21,27 @@ if(isset($_POST['sign-up'])){
     $barangay = $_POST['barangay'];
     $province = $_POST['province'];
     $city = $_POST['city'];
-    $zipCode = intval($_POST['zip-code']);
-    $phoneNum = intval($_POST['phone-num']);
+    $zipCode = $_POST['zip-code'];
+    $zipCode = intval($zipCode);
+    $phoneNum = $_POST['phone-num'];
+    $phoneNum = intval($phoneNum);
+    $phoneNum = $_POST['phone-num'];
 
-    // Check if email already exists
-    $email_check_query = "SELECT email FROM account WHERE email='$email'";
-    $result = mysqli_query($connect, $email_check_query);
+    $options = [
+        'cost' => 12,
+    ];
+    $hash = password_hash($password, PASSWORD_BCRYPT, $options);
 
-    if (mysqli_num_rows($result) > 0) {
-        // Email already exists
-        $alert_message = "Email already used!";
-        header("Location: http://localhost/html/sign-up.html?alert=" . urlencode($alert_message));
+    $query_signup = "INSERT INTO account(firstName, lastName, email, password) VALUES('$firstName','$lastName','$email','$hash')";
+    $query_address = "INSERT INTO address(email, houseNumber, street, barangay, province, city, zipCode, phoneNumber) VALUES('$email', '$houseNum', '$street', '$barangay', '$province', '$city', '$zipCode', '$phoneNum')";
+    $query_signup = mysqli_query($connect, $query_signup);
+    $query_address = mysqli_query($connect, $query_address);
+
+    if($query_signup){
+        header("Location: http://localhost/html/index.html");
         exit();
     } else {
-        // Proceed with sign-up
-        $options = ['cost' => 12];
-        $hash = password_hash($password, PASSWORD_BCRYPT, $options);
-
-        $query_signup = "INSERT INTO account(firstName, lastName, email, password) VALUES('$firstName','$lastName','$email','$hash')";
-        $query_address = "INSERT INTO address(email, houseNumber, street, barangay, province, city, zipCode, phoneNumber) VALUES('$email', '$houseNum', '$street', '$barangay', '$province', '$city', '$zipCode', '$phoneNum')";
-
-        $query_signup = mysqli_query($connect, $query_signup);
-        $query_address = mysqli_query($connect, $query_address);
-
-        if($query_signup && $query_address){
-            header("Location: http://localhost/html/index.html");
-            exit();
-        } else {
-            echo "Data not inserted";
-        }
+        echo "data not inserted";
     }
 }
 
