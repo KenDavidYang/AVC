@@ -104,8 +104,8 @@
     <main>
         <aside>
             <div>
-                <a class="order-nav" href="./orders.html">Checkout</a>
-                <a class="order-nav-select" href="./orders-orders.html">Orders</a>
+                <a class="order-nav" href="./html/orders.html">Checkout</a>
+                <a class="order-nav-select" href="#">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
                 <div class="order-nav">Logout</div>
             </div>

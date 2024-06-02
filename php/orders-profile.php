@@ -86,7 +86,7 @@ session_start();
         <aside>
             <div>
                 <a class="order-nav" href="./html/orders.html">Checkout</a>
-                <a class="order-nav" href="./html/orders-orders.html">Orders</a>
+                <a class="order-nav" href="./orders-orders.php">Orders</a>
                 <a class="order-nav-select" href="#">Profile</a>
                 <div class="order-nav">Logout</div>
             </div>
