@@ -27,8 +27,8 @@
         </div>
 
         <div>
-            <a href="sign-up.html">
-                <button class="button-sign-up">Sign Up</button>
+            <a href="login.html">
+                <button class="button-sign-up">Log In</button>
             </a>
         </div>
     </div>
@@ -41,7 +41,7 @@
         <aside>
             <div>
                 <a class="order-nav-select" href="./orders.html">Checkout</a>
-                <a class="order-nav" href="./orders-orders.html">Orders</a>
+                <a class="order-nav" href="../orders-orders.php">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
                 <div class="order-nav">Logout</div>
             </div>
@@ -49,7 +49,7 @@
 
         
         <section class="sectionCon">
-            <form action="http://localhost" method="POST">
+            <form action="http://localhost" method="POST" enctype="multipart/form-data">
                 <div class="group-label-option-button">
                     <div class="group-label-option">
                         <div class="labels">
@@ -61,6 +61,9 @@
                             <div class="label">Quantity:</div>
                             <div class="label">Finish:</div>
                             <div class="label">Cover type:</div>
+                            <div class="mb-3">
+                                <input type="file" name="file" id="file">
+                            </div>
                         </div>
                     
                         <div class="options">

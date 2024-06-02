@@ -60,7 +60,8 @@ CREATE TABLE `address` (
 --
 
 CREATE TABLE `orders` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
   `serviceType` varchar(20) NOT NULL,
   `paperSize` varchar(20) NOT NULL,
   `paperType` varchar(20) NOT NULL,
@@ -68,7 +69,11 @@ CREATE TABLE `orders` (
   `pageAmount` varchar(20) NOT NULL,
   `quantity` varchar(20) NOT NULL,
   `finish` varchar(20) NOT NULL,
-  `coverType` varchar(20) NOT NULL
+  `coverType` varchar(20) NOT NULL,
+  `filename` varchar(200) NOT NULL,
+  `filesize` int(11) NOT NULL,
+  `filetype` varchar(100) NOT NULL,
+  `checkOut_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
