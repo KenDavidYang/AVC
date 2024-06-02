@@ -6,11 +6,18 @@
     <title>Orders</title>
 
     <link rel="stylesheet" href="../css/navigation-bar.css">
+    <link rel="stylesheet" href="../css/orders.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/footer-bar.css">
+    <link rel="stylesheet" href="../css/orders-nav-bar.css">
+    <link rel="website icon" type="jpg"
+    href="../image/logo.jpg">
 </head>
 <body>
+    
     <div class="navigation-bar">
         <a href="../index.html">
-            <img class="navigation-bar-img" src="../image/default.png" alt="img">
+            <img class="navigation-bar-img" src="../image/logo.jpg" alt="img">
         </a>
 
         <div class="navigation-bar-middle">
@@ -24,13 +31,137 @@
                 <button class="button-sign-up">Sign Up</button>
             </a>
         </div>
-    </div>v>
+    </div>
 
     <br>
     <br>
     <br>
     <br>
+    <main>
+        <aside>
+            <div>
+                <a class="order-nav-select" href="./orders.html">Checkout</a>
+                <a class="order-nav" href="./orders-orders.html">Orders</a>
+                <a class="order-nav" href="./orders-profile.php">Profile</a>
+                <div class="order-nav">Logout</div>
+            </div>
+        </aside>
 
-    Orders
+        
+        <section class="sectionCon">
+            <form action="http://localhost" method="POST">
+                <div class="group-label-option-button">
+                    <div class="group-label-option">
+                        <div class="labels">
+                            <div class="label">Service Type:</div>
+                            <div class="label">Paper Size:</div>
+                            <div class="label">Paper Type:</div>
+                            <div class="label">Color:</div>
+                            <div class="label">Number of Pages:</div>
+                            <div class="label">Quantity:</div>
+                            <div class="label">Finishing:</div>
+                            <div class="label">Cover type:</div>
+                        </div>
+                    
+                        <div class="options">
+                        <div class="stype">
+                            <select name="service-type" class="selection" placeholder="Choose Service">
+                                <option value="book">Book</option>
+                                <option value="yearbook">Yearbook</option>
+                                <option value="journal">Journal</option>
+                                <option value="magazine">Magazine</option>
+                                <option value="calendar">Calendar</option>
+                            </select>
+                        </div>
+                        <div class="psize">
+                            <select name="paper-size" class="selection" placeholder="Choose Paper Size">
+                                <option>Letter / 8.5" x 11"</option>
+                                <option>A4 / 8.3 x 11.7</option>
+                                <option>4" x 9"</option>
+                                <option>9" x 12"</option>
+                                <option>9" x 4"</option>
+                                <option>18" x 36"</option>
+                                <option>10" x 12"</option>
+                                <option value="custom">Custom Size</option>
+                            </select>
+                        </div>
+                        <div class="ptype">
+                        <select name="paper-type" class="selection" placeholder="Choose Paper Type">
+                            <option>Newsprint</option>
+                            <option>Bookpaper</option>
+                            <option>Mechanical Bond</option>
+                        </select>
+                        </div>
+                        <div class="color">
+                            <select name="color" class="selection" placeholder="Choose Color type">
+                                <option>Black & White</option>
+                                <option>Dual-Colored</option>
+                                <option>Tri-Colored</option>
+                                <option>Full-Colored</option>
+                            </select>
+                        </div>
+                        <div class="pages">
+                            <input name="number-of-pages" type="number" class="selection" placeholder="Number of Pages" max="20000">     
+                        </div>
+                        <div class="quantity">
+                            <input name="quantity" type="number" class="selection" placeholder="Enter Quantity" max="20000">     
+                        </div>
+                        <div class="finishing">
+                            <select name="finish" class="selection" placeholder="Choose Finishing Type">
+                                <option>Laminated</option>
+                            <option>Matted</option>
+                            </select>
+                        </div>
+                        <div class="cover">
+                        <select name="cover-type" class="selection" placeholder="Choose Cover Type">
+                                <option>Inside-front cover</option>
+                            <option>Inside-back cover</option>
+                            </select>
+                            <div id="smart-button-container">
+                                <div style="text-align: center;">
+                                    <div id="paypal-button-container"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                    </div>
+                    <button class="checkout" type="submit" name="order">Checkout</button>
+                </div>
+            </form>
+        </section>
+
+        <!--footer-->
+        <div class="footer-bar">
+            <div class="footer-bar-con">
+                <div class="footer-col">
+                    <h3>Address</h3>
+                    <p>46A Tandang Sora Avenue </p>
+                    <p>Sangandaaan 2, Quezon City,</p>
+                    <p>Philippines, 1116</p>
+                </div>
+                <div class="footer-col">                  
+                    <h3>Contact Us</h3> 
+                    <p>8252-0299 . 7791-1557</p>
+                    <p>+63 - 0920 915 7875</p>
+                    <p>avcprinting@yahoo.com</p>
+                </div>         
+                <div class="footer-col">
+                    <h3>Follow Us</h3> 
+                    <a class="follow-us" href="https://www.facebook.com/1AVCPrinting" class="link-modifier" target="blank">
+                        Facebook
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3> 
+                    <p>Book</p>
+                    <p>Yearbook</p>
+                    <p>Journal</p>
+                    <p>Magazine</p>
+                    <p>Calendar</p>
+                </div>
+            </div>
+        </div> 
+
+    </main>
 </body>
-</html>
