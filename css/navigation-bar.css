@@ -46,6 +46,7 @@ body {
     transition: 0.5s;
 }
 .button-sign-up {
+    width: 100px;
     padding: 10px;
     border-radius: 10px;
     background-color: orange;

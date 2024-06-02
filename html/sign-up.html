@@ -7,35 +7,6 @@
 
     <link rel="stylesheet" href="../css/navigation-bar.css">
     <link rel="stylesheet" href="../css/sign-up.css">
-
-    <script>
-        function validateForm() {
-            var firstName = document.forms["signupForm"]["first-name"].value;
-            var lastName = document.forms["signupForm"]["last-name"].value;
-            var email = document.forms["signupForm"]["email"].value;
-            var password = document.forms["signupForm"]["password"].value;
-
-            if (firstName == "" || lastName == "" || email == "" || password == "") {
-                alert("All fields must be filled out");
-                return false;
-            }
-
-            var emailRegex = /\S+@\S+\.\S+/;
-            if (!emailRegex.test(email)) {
-                alert("Invalid Email Address");
-                return false;
-            }
-
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long");
-                return false;
-            }
-
-            return true;
-        }
-
-
-    </script>
 </head>
 <body>
     <div class="navigation-bar">
@@ -44,14 +15,14 @@
         </a>
 
         <div class="navigation-bar-middle">
-            <a class="navigation-bar-middle-sub" href="about.html">About</a>
-            <a class="navigation-bar-middle-sub" href="services.html">Services</a>
-            <a class="navigation-bar-middle-sub" href="orders.html">Orders</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/about.html">About</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/services.html">Services</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/orders.html">Orders</a>
         </div>
 
         <div>
-            <a href="sign-up.html">
-                <button class="button-sign-up">Sign Up</button>
+            <a href="login.html">
+                <button class="button-sign-up">Log In</button>
             </a>
         </div>
     </div>
