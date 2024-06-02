@@ -3,6 +3,7 @@
 }
 body{
     height: 700px;
+    background-color: var(--primary-color);
 }
 aside{
     width: 30%;
@@ -26,6 +27,7 @@ section{
     float: right;
 }
 .label{
+    color: var(--secondary-color);
     margin-bottom: 9.5px;
 }
 .box{
@@ -42,7 +44,7 @@ section{
     font-weight: 600;
     font-size: 18px;
     border: none;
-    color: white;
+    color: var(--secondary-color);
     border-radius: 10px;
     margin-top: 130px;
 }

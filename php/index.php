@@ -39,7 +39,7 @@ if(isset($_POST['sign-up'])){
     $query_address = mysqli_query($connect, $query_address);
 
     if($query_signup){
-        header("Location: http://localhost/html/login.html");
+        header("Location: http://localhost/html/index.html");
         exit();
     } else {
         echo "data not inserted";
@@ -50,6 +50,7 @@ if(isset($_POST['sign-up'])){
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
+    $_SESSION['email'] = $email;
     $password = $_POST['password'];
     $query_login = "SELECT ID, password FROM account WHERE email='$email'";
 
@@ -76,8 +77,8 @@ if(isset($_POST['order'])){
 
     // Check if email is available in session
     if(!isset($email) || empty($email)) {
-        echo "Email not found in session.";
-        exit(); // Exit if email is not available
+    echo "Email not found in session.";
+    exit(); // Exit if email is not available
     }
 
     // Retrieve other order details
@@ -90,64 +91,46 @@ if(isset($_POST['order'])){
     $finish = $_POST['finish'];
     $coverType = $_POST['cover-type'];
 
+    if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
+        $target_dir = "uploads/"; // Change this to the desired directory for uploaded files
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+        $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    if (!is_dir($target_dir)) {
-        mkdir($target_dir, 0777, true);
-    }
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $Filetype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 10000000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    // Allow certain file formats
-    $allowed_types = array("jpg", "jpeg", "png", "pdf");
-    if (!in_array($Filetype, $allowed_types)) {
-        ?>
-        <script> 
-        alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
-        </script>
-        <?php
-        //echo ;
-        $uploadOk = 0;
-    }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-        
-    // If everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-
-            $filename = $_FILES["fileToUpload"]["name"];
-            $filesize = $_FILES["fileToUpload"]["size"];
-            $filetype = $_FILES["fileToUpload"]["type"];
-
-            // Declare MySQL query and run it
-            $query_order_input = "INSERT INTO orders(serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType, filename, filesize, filetype) 
-            VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType', '$filename', '$filesize', '$filetype')";
-            $query_order_input = mysqli_query($connect, $query_order_input);
+        // Check if the file is allowed (you can modify this to allow specific file types)
+        $allowed_types = array("jpg", "jpeg", "png", "pdf");
+        if (!in_array($file_type, $allowed_types)) {
+            echo "Sorry, only JPG, JPEG, PNG and PDF files are allowed.";
         } else {
-            ?>
-            <script> 
-                alert ("Sorry, there was an error uploading your file.");
-            </script>
-            <?php
-        }
+            // Move the uploaded file to the specified directory
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+                // File upload success, now store information in the database
+                $fileName = $_FILES["file"]["name"];
+                $filesize = $_FILES["file"]["size"];
+                $filetype = $_FILES["file"]["type"];
+
+                // Insert the file information into the database
+                /*$query_order_input = "INSERT INTO orders( serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType, fileName, filesize, filetype) 
+                VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType', '$fileName', '$filesize', '$filetype')";
+                $query_order_input = mysqli_query($connect, $query_order_input);
+*/
+                
+                $query_order_input = "INSERT INTO orders(email, serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType, fileName, filesize, filetype) 
+                VALUES('$email', '$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType', '$fileName', '$filesize', '$filetype')";
+                
+                $query_order_input = mysqli_query($connect, $query_order_input);  
+                
+
         // Redirect to main page if no problem
         if($query_order_input){
-            header("Location: http://localhost/html/orders-orders.html");
-            exit();
+            header("Location: http://localhost/html/index.html");
         } else {
             echo "Error: " . mysqli_error($connect);
     }
-    }
 }
+}
+}
+}
+
 #$stmt = $connect->prepare("INSERT INTO registration(firstName, lastName, email, password) values(:firstname,:lastName,:email,:password)");
 #$stmt->bindParam(":firstname", $firstName, PDO::PARAM_STR);
 ?>
