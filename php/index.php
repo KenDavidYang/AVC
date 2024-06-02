@@ -104,7 +104,7 @@ if(isset($_POST['order'])){
 
     // Redirect to main page if no problem
     if($query_order_input){
-        header("Location: http://localhost/html/index.html");
+        header("Location: http://localhost/html/orderspayment.html");
         exit();
     } else {
         echo "Error: " . mysqli_error($connect);
