@@ -1,7 +1,6 @@
 <?php
 ob_start();
 session_start();
-$server = "localhost";
 $connect = mysqli_connect (
     "db", #service name 
     "php_docker", # username
@@ -71,14 +70,13 @@ if(isset($_POST['login'])){
 }
 
 if(isset($_POST['order'])){
-
     // Retrieve email from session
     $email = $_SESSION['email']; // Assuming you stored the email in the session during login or sign-up
 
     // Check if email is available in session
     if(!isset($email) || empty($email)) {
-    echo "Email not found in session.";
-    exit(); // Exit if email is not available
+        echo "Email not found in session.";
+        exit(); // Exit if email is not available
     }
 
     // Retrieve other order details
@@ -91,46 +89,20 @@ if(isset($_POST['order'])){
     $finish = $_POST['finish'];
     $coverType = $_POST['cover-type'];
 
-    if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
-        $target_dir = "uploads/"; // Change this to the desired directory for uploaded files
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    // Declare MySQL query and run it
+    $query_order_input = "INSERT INTO orders(email, serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType) 
+    VALUES('$email', '$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType')";
 
-        // Check if the file is allowed (you can modify this to allow specific file types)
-        $allowed_types = array("jpg", "jpeg", "png", "pdf");
-        if (!in_array($file_type, $allowed_types)) {
-            echo "Sorry, only JPG, JPEG, PNG and PDF files are allowed.";
-        } else {
-            // Move the uploaded file to the specified directory
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-                // File upload success, now store information in the database
-                $fileName = $_FILES["file"]["name"];
-                $filesize = $_FILES["file"]["size"];
-                $filetype = $_FILES["file"]["type"];
+    $query_order_input = mysqli_query($connect, $query_order_input);
 
-                // Insert the file information into the database
-                /*$query_order_input = "INSERT INTO orders( serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType, fileName, filesize, filetype) 
-                VALUES('$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType', '$fileName', '$filesize', '$filetype')";
-                $query_order_input = mysqli_query($connect, $query_order_input);
-*/
-                
-                $query_order_input = "INSERT INTO orders(email, serviceType, paperSize, paperType, color, pageAmount, quantity, finish, coverType, fileName, filesize, filetype) 
-                VALUES('$email', '$serviceType','$paperSize' ,'$paperType' ,'$color' ,'$pageAmount' ,'$quantity' ,'$finish' ,'$coverType', '$fileName', '$filesize', '$filetype')";
-                
-                $query_order_input = mysqli_query($connect, $query_order_input);  
-                
-
-        // Redirect to main page if no problem
-        if($query_order_input){
-            header("Location: http://localhost/html/index.html");
-        } else {
-            echo "Error: " . mysqli_error($connect);
+    // Redirect to main page if no problem
+    if($query_order_input){
+        header("Location: http://localhost/html/index.html");
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($connect);
     }
 }
-}
-}
-}
-
 #$stmt = $connect->prepare("INSERT INTO registration(firstName, lastName, email, password) values(:firstname,:lastName,:email,:password)");
 #$stmt->bindParam(":firstname", $firstName, PDO::PARAM_STR);
 ?>
