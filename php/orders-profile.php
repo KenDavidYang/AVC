@@ -56,8 +56,7 @@ session_start();
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/footer-bar.css">
     <link rel="stylesheet" href="../css/orders-nav-bar.css">
-    <link rel="website icon" type="jpg"
-    href="../image/logo.jpg">
+    <link rel="website icon" type="jpg" href="../image/logo.jpg">
 </head>
 <body>
     <div class="navigation-bar">
@@ -72,8 +71,8 @@ session_start();
         </div>
 
         <div>
-            <a href="./html/login.html">
-                <button class="button-sign-up">Log In</button>
+            <a href="./html/sign-up.html">
+                <button class="button-sign-up">Sign Up</button>
             </a>
         </div>
     </div>
@@ -85,9 +84,9 @@ session_start();
     <main>
         <aside>
             <div>
-                <a class="order-nav" href="./html/orders.html">Checkout</a>
-                <a class="order-nav" href="./html/orders-orders.html">Orders</a>
-                <a class="order-nav-select" href="#">Profile</a>
+                <a class="order-nav" href="http://localhost/html/orders.html">Checkout</a>
+                <a class="order-nav" href="http://localhost/orders-orders.php">Orders</a>
+                <a class="order-nav-select" href="">Profile</a>
                 <div class="order-nav">Logout</div>
             </div>
         </aside>
@@ -188,7 +187,7 @@ session_start();
                         } ?>
                     </div>
                 </div>
-                <button class="profile-button">Save</button> 
+                <button class="profile-button">Edit</button> 
                 </div>   
             </div>
         </section>

@@ -75,8 +75,7 @@
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/footer-bar.css">
     <link rel="stylesheet" href="../css/orders-nav-bar.css">
-    <link rel="website icon" type="jpg" 
-    href="../image/logo.jpg">
+    <link rel="website icon" type="jpg" href="../image/logo.jpg">
 </head>
 <body>
     <div class="navigation-bar">
@@ -91,8 +90,8 @@
         </div>
 
         <div>
-            <a href="login.html">
-                <button class="button-sign-up">Log In</button>
+            <a href="sign-up.html">
+                <button class="button-sign-up">log In</button>
             </a>
         </div>
     </div>
@@ -104,8 +103,8 @@
     <main>
         <aside>
             <div>
-                <a class="order-nav" href="./orders.html">Checkout</a>
-                <a class="order-nav-select" href="./orders-orders.html">Orders</a>
+                <a class="order-nav" href="http://localhost/html/orders.html">Checkout</a>
+                <a class="order-nav-select" href="">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
                 <div class="order-nav">Logout</div>
             </div>
