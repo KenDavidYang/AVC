@@ -11,6 +11,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 
 document.body.appendChild(renderer.domElement);
 
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10);
@@ -77,60 +78,95 @@ let magMatte = "letter-magazine-ng1.glb";
 let magShiny = "letter-magazine-g1.glb"
 let magShiny2 = "letter-magazine-g2.glb"
 
+let scaleMesh = null; // Variable to store the scale mesh
+
 function loadMesh(mesh) {
+  // Remove the current mesh from the scene if it exists
+  if (loadedMesh !== undefined && loadedMesh !== null) {
+    scene.remove(loadedMesh);
+    loadedMesh = null; // Reset the loadedMesh variable
+  }
+
   const loader = new GLTFLoader().setPath('public/');
   loader.load(mesh, (gltf) => {
     console.log('loading model');
     loadedMesh = gltf.scene;
-    
-    loadedMesh.traverse((child) => {
-        if (child.isMesh) {
-            // Apply environment map to the material
-            const envMap = scene.environment; // Assuming you've already set scene.environment to your HDRI texture
-            child.material.envMap = envMap;
-            child.material.envMapIntensity = 1; // Adjust intensity of the environment map reflection
 
-            child.castShadow = true;
-            child.receiveShadow = true;
-        }
+    // Remove all meshes from the scene except the scale mesh
+    scene.traverse((child) => {
+      if (child.isMesh && child !== scaleMesh) {
+        scene.remove(child);
+      }
+    });
+
+    loadedMesh.traverse((child) => {
+      if (child.isMesh) {
+        // Apply environment map to the material
+        const envMap = scene.environment; // Assuming you've already set scene.environment to your HDRI texture
+        child.material.envMap = envMap;
+        child.material.envMapIntensity = 1; // Adjust intensity of the environment map reflection
+
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
     });
 
     loadedMesh.position.set(0, 1, 0);
-    
+
     // Reset the camera near and far clipping planes
     camera.near = 0.1;
     camera.far = 1000;
-    
+
     // Update the camera's projection matrix
     camera.updateProjectionMatrix();
-    
+
     // Calculate the bounding box of the loaded mesh
     const bbox = new THREE.Box3().setFromObject(loadedMesh);
-    
+
     // Calculate the center and size of the bounding box
     const bboxCenter = bbox.getCenter(new THREE.Vector3());
     const bboxSize = bbox.getSize(new THREE.Vector3());
-    
+
     // Calculate the camera's near and far clipping planes based on the bounding box
     const cameraNear = Math.max(0.1, bboxSize.length() / 100);
     const cameraFar = bboxSize.length() * 10;
-    
+
     // Set the camera's near and far clipping planes
     camera.near = cameraNear;
     camera.far = cameraFar;
-    
+
     scene.add(loadedMesh);
     console.log('Mesh value:', loadedMesh);
 
     document.getElementById('progress-container').style.display = 'none';
-}, (xhr) => {
+  }, (xhr) => {
     console.log(`loading ${xhr.loaded / xhr.total * 100}%`);
-}, (error) => {
+  }, (error) => {
     console.error(error);
-});
-
+  });
 }
 
+// Function to add or remove the scale mesh
+function toggleScaleMesh() {
+  if (scaleMesh === null) {
+    const scaleMeshLoader = new GLTFLoader().setPath('public/');
+    scaleMeshLoader.load("pencil.glb", (gltf) => {
+      scaleMesh = gltf.scene;
+
+      scaleMesh.position.set(0, 1, 0);
+
+      scene.add(scaleMesh);
+      console.log('Mesh value:', scaleMesh);
+    }, (xhr) => {
+      console.log(`loading ${xhr.loaded / xhr.total * 100}%`);
+    }, (error) => {
+      console.error(error);
+    });
+  } else {
+    scene.remove(scaleMesh);
+    scaleMesh = null;
+  }
+}
 // document.querySelectorAll('.dropdown-content a').forEach(function(option) {
 //   option.addEventListener('click', function() {
 //     console.log('Option clicked:', option.textContent);
@@ -153,11 +189,31 @@ function loadMesh(mesh) {
 // });
 
 const updateButton = document.querySelector('.update-button');
+const scaleButton = document.querySelector('.scale-button');
+const tableButton = document.querySelector('.table-button');
+const bookshelfButton = document.querySelector('.bookshelf-button');
 
 updateButton.addEventListener('click', () => {
   const selectedOptions = document.querySelectorAll('input[type="radio"]:checked');
   const optionIds = Array.from(selectedOptions).map(option => option.id).join('-') + '.glb';
   loadMesh(optionIds);
+});
+
+scaleButton.addEventListener('click', () => {
+  toggleScaleMesh();
+  console.log('scale button clicked');
+});
+
+tableButton.addEventListener('click', () => {
+  let table = "table.glb";
+  loadMesh(table);
+  console.log('table button clicked');
+});
+
+bookshelfButton.addEventListener('click', () => {
+  let bookshelf = "bookshelf.glb";
+  loadMesh(bookshelf);
+  console.log('bookshelf button clicked');
 });
 
 function animate() {
