@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/footer-bar.css">
     <link rel="stylesheet" href="../css/orders-nav-bar.css">
-    <link rel="website icon" type="jpg"
-    href="../image/logo.jpg">
+    <link rel="website icon" type="jpg" href="../image/logo.jpg">
 </head>
 <body>
     
@@ -21,14 +20,14 @@
         </a>
 
         <div class="navigation-bar-middle">
-            <a class="navigation-bar-middle-sub" href="./about.html">About</a>
-            <a class="navigation-bar-middle-sub" href="./services.html">Services</a>
-            <a class="navigation-bar-middle-sub" href="./orders.html">Orders</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/about.html">About</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/services.html">Services</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/orders.html">Orders</a>
         </div>
 
         <div>
-            <a href="sign-up.html">
-                <button class="button-sign-up">Sign Up</button>
+            <a href="login.html">
+                <button class="button-sign-up">Log In</button>
             </a>
         </div>
     </div>
@@ -41,15 +40,18 @@
         <aside>
             <div>
                 <a class="order-nav-select" href="./orders.html">Checkout</a>
-                <a class="order-nav" href="./orders-orders.html">Orders</a>
+                <a class="order-nav" href="http:/orders-orders.php">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
-                <div class="order-nav">Logout</div>
+                <a class="order-nav" href="http:/three/three.html" style="background-color: #ccffcc; color: black; font-weight: 400;">3D Viewer</a>
+                <form action="http://localhost" method="POST">
+                    <button class="order-nav" style="background-color: #111111;" type="submit" name="logout">Logout</button>
+                </form>
             </div>
         </aside>
 
         
         <section class="sectionCon">
-            <form action="http://localhost" method="POST">
+            <form action="http://localhost" method="POST" enctype="multipart/form-data">
                 <div class="group-label-option-button">
                     <div class="group-label-option">
                         <div class="labels">
@@ -61,6 +63,9 @@
                             <div class="label">Quantity:</div>
                             <div class="label">Finish:</div>
                             <div class="label">Cover type:</div>
+                            <div class="mb-3">
+                                <input type="file" name="file" id="file" required>
+                            </div>
                         </div>
                     
                         <div class="options">

@@ -4,7 +4,10 @@ body {
     background: #111111;
     color: white;
 }
-
+.icon{
+    width: 28px;
+    cursor: pointer;
+}
 .navigation-bar {
     display:flex;
     width: 100%;
