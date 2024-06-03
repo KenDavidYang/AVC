@@ -19,11 +19,95 @@
       position: absolute;
       top: 10px;
       right: 10px;
+      background-color: #11ffaa;
+      color: black;
+    }
+
+    .scale-button {
+      position: absolute;
+      margin: 4vw 0px 0px 1vw;
+      padding: 0.5vw 1.5vw;
+      background-color: #ccffcc;
+      color: black;
+      border-radius: 0.5vw;
+      border: 1px gray solid;
+      font-size: 1.5vw;
+    }
+
+    .table-button {
+      position: absolute;
+      margin: 10vw 0px 0px 1vw;
+      padding: 0.5vw 1.5vw;
+      background-color: #ccffcc;
+      color: black;
+      border-radius: 0.5vw;
+      border: 1px gray solid;
+      font-size: 1.5vw;
+    }
+
+    .bookshelf-button {
+      position: absolute;
+      margin: 7vw 0px 0px 1vw;
+      padding: 0.5vw 1.5vw;
+      background-color: #ccffcc;
+      color: black;
+      border-radius: 0.5vw;
+      border: 1px gray solid;
+      font-size: 1.5vw;
+    }
+
+    .popup-button {
+      margin: 1vw;
+      padding: 0.5vw 1.5vw;
+      background-color: #11ffaa;
+      color: black;
+      border-radius: 0.5vw;
+      border: 1px gray solid;
+      font-size: 1.5vw;
+    }
+
+    .scale-button:hover,
+    .bookshelf-button:hover,
+    .table-button:hover {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.5s;
+    }
+
+    .scale-button:active,
+    .bookshelf-button:active,
+    .table-button:active {
+      background-color: yellow;
+      transition: 0.1s
+    }
+
+    .back-button {
+      position: absolute;
+      margin: 1vw;
+      padding: 0.5vw 1.5vw;
+      background-color: #11ffaa;
+      color: black;
+      border-radius: 0.5vw;
+      border: 1px gray solid;
+      font-size: 1.5vw;
+    }
+
+    .back-button:hover,
+    .popup-button:hover {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.5s;
+    }
+
+    .back-button:active,
+    .popup-button:active {
+      background-color: yellow;
+      transition: 0.1s
     }
 
     .popup {
       position: absolute;
-      top: 50px;
+      top: 5vw;
       right: 10px;
       background-color: white;
       padding: 10px;
@@ -49,8 +133,8 @@
     }
 
     .radio-row.first-row {
-  justify-content: space-evenly;
-}
+      justify-content: space-evenly;
+    }
 
 
     .update-button {
@@ -73,56 +157,63 @@
     <div id="progress" style="position: absolute; margin-left: 10vw;">Engaging Hyperdrive...</div>
   </div>
   <script type="module" src="script.js"></script>
-  <button id="button" style="position:absolute">back</button>
 
-<div class="container">
-  <button class="button">Open Popup</button>
-  <div class="popup">
-    <div class="radio-row first-row">
-      <div class="radio-container">
-        <input type="radio" name="option1" id="laminated">
-        <label for="option1a">Laminated</label>
+  <a href="http:/html/orders.html">
+    <button id="button" class="back-button">&lt;</button>
+  </a>
+
+  <button id="button" class="scale-button">scale</button>
+  <button id="button" class="bookshelf-button">bookshelf</button>
+  <button id="button" class="table-button">table</button>
+
+  <div class="container">
+    <button class="button popup-button">Open Popup</button>
+    <div class="popup">
+      <div class="radio-row first-row">
+        <div class="radio-container">
+          <input type="radio" name="option1" id="laminated">
+          <label for="option1a">Laminated</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="option1" id="matte">
+          <label for="option1b">Matte</label>
+        </div>
       </div>
-      <div class="radio-container">
-        <input type="radio" name="option1" id="matte">
-        <label for="option1b">Matte</label>
+      <div class="radio-row">
+        <div class="radio-container">
+          <input type="radio" name="option2" id="size1">
+          <label for="option2a">Size 1</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="option2" id="size2">
+          <label for="option2b">Size 2</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="option2" id="size3">
+          <label for="option2c">Size 3</label>
+        </div>
       </div>
+      <div class="radio-row">
+        <div class="radio-container">
+          <input type="radio" name="option3" id="book">
+          <label for="option3a">Book</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="option3" id="yearbook">
+          <label for="option3b">Year Book</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="option3" id="magazine">
+          <label for="option3c">Magazine</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="option3" id="calendar">
+          <label for="option3d">Calendar</label>
+        </div>
+      </div>
+      <button class="update-button">Update</button>
     </div>
-    <div class="radio-row">
-      <div class="radio-container">
-        <input type="radio" name="option2" id="option2a">
-        <label for="option2a">Option 2a</label>
-      </div>
-      <div class="radio-container">
-        <input type="radio" name="option2" id="option2b">
-        <label for="option2b">Option 2b</label>
-      </div>
-      <div class="radio-container">
-        <input type="radio" name="option2" id="option2c">
-        <label for="option2c">Option 2c</label>
-      </div>
-    </div>
-    <div class="radio-row">
-      <div class="radio-container">
-        <input type="radio" name="option3" id="option3a">
-        <label for="option3a">Option 3a</label>
-      </div>
-      <div class="radio-container">
-        <input type="radio" name="option3" id="option3b">
-        <label for="option3b">Option 3b</label>
-      </div>
-      <div class="radio-container">
-        <input type="radio" name="option3" id="option3c">
-        <label for="option3c">Option 3c</label>
-      </div>
-      <div class="radio-container">
-        <input type="radio" name="option3" id="option3d">
-        <label for="option3d">Option 3d</label>
-      </div>
-    </div>
-    <button class="update-button">Update</button>
   </div>
-</div>
   <script>
     const button = document.querySelector('.button');
     const popup = document.querySelector('.popup');
