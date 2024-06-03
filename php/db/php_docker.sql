@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: May 21, 2024 at 02:18 PM
--- Server version: 8.3.0
+-- Generation Time: Jun 03, 2024 at 03:28 AM
+-- Server version: 8.4.0
 -- PHP Version: 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -60,7 +60,7 @@ CREATE TABLE `address` (
 --
 
 CREATE TABLE `orders` (
-  `ID` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `ID` int NOT NULL,
   `email` varchar(255) NOT NULL,
   `serviceType` varchar(20) NOT NULL,
   `paperSize` varchar(20) NOT NULL,
@@ -69,11 +69,9 @@ CREATE TABLE `orders` (
   `pageAmount` varchar(20) NOT NULL,
   `quantity` varchar(20) NOT NULL,
   `finish` varchar(20) NOT NULL,
-  `coverType` varchar(20) NOT NULL,
+  `coverType` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `filename` varchar(255) NOT NULL,
-  `filesize` bigint NOT NULL,
-  `filetype` varchar(100) NOT NULL,
-  `checkOut_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `checkOut_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -93,6 +91,12 @@ ALTER TABLE `address`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -106,6 +110,12 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
   MODIFY `ID` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
