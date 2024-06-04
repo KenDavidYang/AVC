@@ -84,7 +84,7 @@ session_start();
     <main>
     <aside>
             <div>
-                <a class="order-nav-select" href="./orders.html">Checkout</a>
+                <a class="order-nav-select" href="http:/html/orders.html">Checkout</a>
                 <a class="order-nav" href="http:/orders-orders.php">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
                 <a class="order-nav" href="http:/three/three.html" style="background-color: #ccffcc; color: black; font-weight: 400;">3D Viewer</a>
