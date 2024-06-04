@@ -76,6 +76,12 @@ if(isset($_POST['login'])){
     }
 }
 
+if(isset($_POST['logout'])){
+    session_destroy();
+    header("Location: http://localhost/html/login.html");
+    exit();
+}
+
 if(isset($_POST['order'])){
 
     // Retrieve email from session

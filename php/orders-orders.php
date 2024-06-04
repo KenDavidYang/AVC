@@ -90,7 +90,7 @@
         </div>
 
         <div>
-            <a href="sign-up.html">
+            <a href="login.html">
                 <button class="button-sign-up">log In</button>
             </a>
         </div>
@@ -103,10 +103,13 @@
     <main>
         <aside>
             <div>
-                <a class="order-nav" href="http://localhost/html/orders.html">Checkout</a>
-                <a class="order-nav-select" href="">Orders</a>
+                <a class="order-nav-select" href="http:/html/orders.html">Checkout</a>
+                <a class="order-nav" href="http:/orders-orders.php">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
-                <div class="order-nav">Logout</div>
+                <a class="order-nav" href="http:/three/three.html" style="background-color: #ccffcc; color: black; font-weight: 400;">3D Viewer</a>
+                <form action="http://localhost" method="POST">
+                    <button class="order-nav" style="background-color: #111111;" type="submit" name="logout">Logout</button>
+                </form>
             </div>
         </aside>
         <style>
@@ -162,6 +165,7 @@
                     <p>46A Tandang Sora Avenue </p>
                     <p>Sangandaaan 2, Quezon City,</p>
                     <p>Philippines, 1116</p>
+                    <p class="rights">© 2024 All Rights Reserved.</p> 
                 </div>
                 <div class="footer-col">                  
                     <h3>Contact Us</h3> 

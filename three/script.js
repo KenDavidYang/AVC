@@ -91,6 +91,8 @@ function loadMesh(mesh) {
   loader.load(mesh, (gltf) => {
     console.log('loading model');
     loadedMesh = gltf.scene;
+    console.log(mesh);
+    console.log("yay");
 
     // Remove all meshes from the scene except the scale mesh
     scene.traverse((child) => {
