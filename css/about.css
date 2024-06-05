@@ -1,0 +1,31 @@
+section{
+    height: 1200px;
+    margin: 0;
+}
+.par{
+    font-size: 20px;
+    line-height: 30px;
+}
+.about-con{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    padding: 20px 0 20px 0;
+}
+.aboutTItle{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    width: 72%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    display: absolute;
+    position: relative;
+}
+.img1{
+    margin: 0;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}

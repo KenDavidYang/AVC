@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+
+    <link rel="stylesheet" href="../css/navigation-bar.css">
+    <link rel="stylesheet" href="../css/sign-up.css">
+    <link rel="website icon" type="jpg" href="../image/logo.jpg">
+    
+    <script>
+
+
+        function validateForm() {
+            var email = document.forms["loginForm"]["email"].value;
+            var password = document.forms["loginForm"]["password"].value;
+            
+            if (email == "" || password == "") {
+                alert("All fields must be filled out");
+                return false;
+        }
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const alertMessage = urlParams.get('alert');
+
+        // Display the alert message if it exists
+        if (alertMessage) {
+            alert(alertMessage);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="navigation-bar">
+        <a href="./index.html">
+            <img class="navigation-bar-img" src="../image/logo.jpg" alt="img">
+        </a>
+
+        <div class="navigation-bar-middle">
+            <a class="navigation-bar-middle-sub" href="http:/html/about.html">About</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/services.html">Services</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/orders.html">Orders</a>
+        </div>
+
+        <div>
+            <a href="sign-up.html">
+                <button class="button-sign-up">Sign Up</button>
+            </a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container-container">
+        <div class="container">
+            <div class="title">Login to your account</div>
+            
+            <form name="loginForm" action="http://localhost" method="post" onsubmit="return validateForm()">
+
+                <div class="input-container">
+                    <div class="margin-top">Email:</div>
+                    <input class="input" type="email" name="email" placeholder="Email">
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Password:</div>
+                    <input class="input" type="password" name="password" placeholder="Password">
+                </div>
+                
+                <div style="text-align: center; margin: 0 0 30px 0;">
+                    Don't have an account? <a href="./sign-up.html">Sign Up.</a>
+                </div>
+
+                <div class="buttons-container">
+                    <button class="button" type="submit" name="login" value="login">Login</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

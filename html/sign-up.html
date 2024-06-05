@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="../css/navigation-bar.css">
+    <link rel="stylesheet" href="../css/sign-up.css">
+
+    <script>
+        function validateForm() {
+            var firstName = document.forms["signupForm"]["first-name"].value;
+            var lastName = document.forms["signupForm"]["last-name"].value;
+            var email = document.forms["signupForm"]["email"].value;
+            var password = document.forms["signupForm"]["password"].value;
+
+            if (firstName == "" || lastName == "" || email == "" || password == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            var emailRegex = /\S+@\S+\.\S+/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid Email Address");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="navigation-bar">
+        <a href="./index.html">
+            <img class="navigation-bar-img" src="../image/logo.jpg" alt="img">
+        </a>
+
+        <div class="navigation-bar-middle">
+            <a class="navigation-bar-middle-sub" href="http:/html/about.html">About</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/services.html">Services</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/orders.html">Orders</a>
+        </div>
+
+        <div>
+            <a href="login.html">
+                <button class="button-sign-up">Log In</button>
+            </a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container-container">
+        <div class="container">
+            <div class="title">Create your account</div>
+            <form name="signupForm" action="http://localhost" method="POST" onsubmit="return validateForm()">
+
+                <div class="input-container">
+                    <div class="margin-top">First name:</div>
+                    <input class="input" type="text" name="first-name" placeholder="First Name" required>                
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Last name:</div>
+                    <input class="input" type="text" name="last-name" placeholder="Last Name" required>
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Email:</div>
+                    <input class="input" type="email" name="email" placeholder="Email@gmail.comd" required>
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Password:</div>
+                    <input class="input" type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <div class="input-container">
+                    <div class="margin-top">Confirm Password:</div>
+                    <input class="input" type="password" name="confirm-password" placeholder="Confirm Password" required>
+                </div>
+
+                <div class="address-input">
+                    <div class="input-container">
+                        <div class="margin-top">House/Building No.</div>
+                        <input class="input" type="text" name="house-num" placeholder="ex: B66 L6" required>
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">Street</div>
+                        <input class="input" type="text" name="street" placeholder="ex: Catacutan" required>
+                    </div>
+                </div>
+
+                <div class="address-input">
+                    <div class="input-container">
+                        <div class="margin-top">Barangay</div>
+                        <input class="input" type="text" name="barangay" placeholder="ex: Aspect" required>
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">Province</div>
+                        <input class="input" type="text" name="province" placeholder="ex: Northern Pole" required>
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">City</div>
+                        <input class="input" type="text" name="city" placeholder="ex: Demacia" required>
+                    </div>
+                </div>
+                <div class="address-input">
+                    <div class="input-container">
+                        <div class="margin-top">Zip Code</div>
+                        <input class="input" type="text" name="zip-code" placeholder="ex: 9999" required>
+                    </div>
+                    <div class="input-container">
+                        <div class="margin-top">Phone/Landline No.</div>
+                        <input class="input" type="text" name="phone-num" placeholder="ex: 09195559324" required>
+                    </div>
+                </div>
+    
+                <div style="text-align: center; margin: 0 0 30px 0;">
+                    Already have an account? <a href="./login.html">Login.</a>
+                </div>
+
+                <div class="buttons-container">
+                    <button class="button" type="submit" name="sign-up" value="sign-up">Sign Up</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
