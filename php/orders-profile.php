@@ -121,17 +121,19 @@ session_start();
         
             <div class="profile-con">
                 <h1 class="profile-title">Password</h1> 
+                <form action="http://localhost" method="POST">
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">Current Password</div>
-                        <input type="password" class="form-control mb-1">
+                        <input type="password" class="form-control mb-1" name="old-pass">
                     </div>
                     <div class="form-group">
-                        <div class="form-label">New Password</div>
-                        <input type="password" class="form-control">
+                        <div class="form-label" value=>New Password</div>
+                        <input type="password" class="form-control" name="new-pass">
                     </div>
                 </div>
-                <button class="profile-button">Change Password</button> 
+                <button class="profile-button" type="submit" name="changepass">Change Password</button> 
+                </form>
             </div>
             
             <!--Address-->
