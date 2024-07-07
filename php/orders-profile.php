@@ -65,14 +65,14 @@ session_start();
         </a>
 
         <div class="navigation-bar-middle">
-            <a class="navigation-bar-middle-sub" href="./html/about.html">About</a>
-            <a class="navigation-bar-middle-sub" href="./html/services.html">Services</a>
-            <a class="navigation-bar-middle-sub" href="./html/orders.html">Orders</a>
+        <a class="navigation-bar-middle-sub" href="http:/html/about.html">About</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/services.html">Services</a>
+            <a class="navigation-bar-middle-sub" href="http:/html/orders.html">Orders</a>
         </div>
 
         <div>
-            <a href="./html/sign-up.html">
-                <button class="button-sign-up">Sign Up</button>
+            <a href="http:/html/login.html">
+                <button class="button-sign-up">login</button>
             </a>
         </div>
     </div>
@@ -84,9 +84,9 @@ session_start();
     <main>
     <aside>
             <div>
-                <a class="order-nav-select" href="http:/html/orders.html">Checkout</a>
+                <a class="order-nav" href="http:/html/orders.html">Checkout</a>
                 <a class="order-nav" href="http:/orders-orders.php">Orders</a>
-                <a class="order-nav" href="http:/orders-profile.php">Profile</a>
+                <a class="order-nav-select" href="http:/orders-profile.php">Profile</a>
                 <a class="order-nav" href="http:/three/three.html" style="background-color: #ccffcc; color: black; font-weight: 400;">3D Viewer</a>
                 <form action="http://localhost" method="POST">
                     <button class="order-nav" style="background-color: #111111;" type="submit" name="logout">Logout</button>
@@ -121,17 +121,19 @@ session_start();
         
             <div class="profile-con">
                 <h1 class="profile-title">Password</h1> 
+                <form action="http://localhost" method="POST">
                 <div class="col">
                     <div class="form-group">
                         <div class="form-label">Current Password</div>
-                        <input type="password" class="form-control mb-1">
+                        <input type="password" class="form-control mb-1" name="old-pass">
                     </div>
                     <div class="form-group">
-                        <div class="form-label">New Password</div>
-                        <input type="password" class="form-control">
+                        <div class="form-label" value=>New Password</div>
+                        <input type="password" class="form-control" name="new-pass">
                     </div>
                 </div>
-                <button class="profile-button">Change Password</button> 
+                <button class="profile-button" type="submit" name="changepass">Change Password</button> 
+                </form>
             </div>
             
             <!--Address-->
@@ -203,6 +205,7 @@ session_start();
                     <p>46A Tandang Sora Avenue </p>
                     <p>Sangandaaan 2, Quezon City,</p>
                     <p>Philippines, 1116</p>
+                    <p class="rights">© 2024 All Rights Reserved.</p> 
                 </div>
                 <div class="footer-col">                  
                     <h3>Contact Us</h3> 

@@ -62,7 +62,7 @@
         header("Location: login.php");
         exit;
     }
-?>
+?>*/
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +90,7 @@
         </div>
 
         <div>
-            <a href="http:/login.html">
+            <a href="login.html">
                 <button class="button-sign-up">log In</button>
             </a>
         </div>
@@ -103,8 +103,8 @@
     <main>
         <aside>
             <div>
-                <a class="order-nav-select" href="http:/html/orders.html">Checkout</a>
-                <a class="order-nav" href="http:/orders-orders.php">Orders</a>
+                <a class="order-nav" href="http:/html/orders.html">Checkout</a>
+                <a class="order-nav-select" href="http:/orders-orders.php">Orders</a>
                 <a class="order-nav" href="http:/orders-profile.php">Profile</a>
                 <a class="order-nav" href="http:/three/three.html" style="background-color: #ccffcc; color: black; font-weight: 400;">3D Viewer</a>
                 <form action="http://localhost" method="POST">
@@ -165,6 +165,7 @@
                     <p>46A Tandang Sora Avenue </p>
                     <p>Sangandaaan 2, Quezon City,</p>
                     <p>Philippines, 1116</p>
+                    <p class="rights">© 2024 All Rights Reserved.</p> 
                 </div>
                 <div class="footer-col">                  
                     <h3>Contact Us</h3> 

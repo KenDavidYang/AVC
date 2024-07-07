@@ -5,6 +5,11 @@ body{
     height: 700px;
     background-color: var(--primary-color);
 }
+:root{
+    --primary-color: #f7f7f7;
+    --secondary-color: #212121;
+    --ordernav-color: #d1d1d1;
+}
 aside{
     width: 30%;
     height: auto;
@@ -12,8 +17,10 @@ aside{
     display: block;
 }
 section{
-    border: 1px solid grey;
-    padding: 10px;
+    border: 1px solid var(--ordernav-color);
+    padding: 20px 10px 10px 10px;
+    box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, .05), -4px -4px 6px 0 hsla(0, 0%, 100%, .3);
+    border-radius: 5px;
     margin-bottom: 20px;
     width: 68%;
     float: left;
@@ -38,6 +45,7 @@ section{
     font-size: 16px;
 }
 .checkout{
+    width: 70%;
     padding: 15px;
     cursor: pointer;
     background-color: #f37028;
@@ -45,8 +53,12 @@ section{
     font-size: 18px;
     border: none;
     color: var(--secondary-color);
-    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 130px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-family: "arial";
 }
 .checkout:hover{
     opacity: 0.5;

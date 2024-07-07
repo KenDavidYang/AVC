@@ -5,8 +5,13 @@ body{
     height: auto;
     margin-top: 20px;
 }
+:root{
+    --primary-color: #f7f7f7;
+    --secondary-color: #212121;
+    --ordernav-color: #d1d1d1;
+}
 section{
-    border: 1px  #d1d1d1;
+    border: 1px  var(--secondary-color);
     margin-bottom: 10px;
     border-radius: 5px;
     padding: 0px 10px 10px 0px;
@@ -16,7 +21,7 @@ section{
     justify-content: space-between;
 }
 .profile-con{
-    border: 1px solid #d1d1d1;
+    border: 1px solid var(--secondary-color);
     padding: 0px 10px 10px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -69,5 +74,5 @@ input{
     padding: 10px;
     font-size: 14px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #d1d1d1;
+    border-bottom: 2px solid var(--secondary-color);
 }

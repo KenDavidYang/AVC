@@ -52,6 +52,47 @@ if(isset($_POST['sign-up'])){
     }
 }
 
+if(isset($_POST["changepass"])) {
+    if(isset($_SESSION["email"])) {
+        $old_pass = $_POST['old-pass'];
+        $new_pass = $_POST["new-pass"];
+        $email = $_SESSION["email"];
+        
+        $query_login = "SELECT ID, password FROM account WHERE email='$email'";
+        $query_login = mysqli_query($connect, $query_login);
+        $row = mysqli_fetch_row($query_login);
+        $databasePassword = $row[1];
+        
+        $options = ['cost' => 12];
+        $new_hash = password_hash($new_pass, PASSWORD_BCRYPT, $options);
+        
+            if(password_verify($old_pass, $databasePassword)) {
+                // Old password is correct, proceed with password change 
+                $query_changepass = "UPDATE account SET password = ? WHERE email=?";
+                $stmt = $connect->prepare($query_changepass);
+                $stmt->bind_param("ss", $new_hash, $email);
+                $stmt->execute();
+    
+                header("Location: http://localhost/orders-profile.php");
+                exit();
+            } else {
+                // Old password is incorrect
+                $alert_message = "Wrong password!";
+                header("Location: http://localhost/html/login.html?alert=" . urlencode($alert_message));
+                exit();
+            }
+        } else {
+            // User not found
+            $alert_message = "User not found!";
+            header("Location: http://localhost/html/login.html?alert=" . urlencode($alert_message));
+            exit();
+        }
+        
+    }
+
+
+
+
 // if html value=login button pressed go here
 if(isset($_POST['login'])){
 

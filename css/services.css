@@ -2,14 +2,18 @@
     box-sizing: border-box;
 
 }
-
+:root{
+    --primary-color: #f7f7f7;
+    --secondary-color: #212121;
+    --ordernav-color: #d1d1d1;
+}
 .container{
     margin: 0;
     padding: 0;
     font-family: "poppins";
     min-height: 100vh;
     width: 100%;
-    background-color: black
+    background-color: var(--primary-color);
 }
 
 .service-wrapper{
@@ -78,7 +82,7 @@ h1 span{
 .card{
     height: 330px;
     width: 370px;
-    background-color: black;
+    background-color: var(--primary-color);
     padding: 3% 8%;
     border: 0.2px solid rgba(244, 247, 245, 0.2);
     border-radius: 8px;
@@ -88,6 +92,7 @@ h1 span{
     flex-direction: column;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card:hover:after{
@@ -101,7 +106,7 @@ h1 span{
     font-size: 3.8rem;
 }
 .card h2{
-    color: white;
+    color: var(--secondary-color);
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -110,12 +115,12 @@ h1 span{
     text-align: left;
     width: 100%;
     margin: 12px 0;
-    color: rgb(255, 255, 255, 0.6);
+    color: rgb(33, 33, 33, 0.6);
 }
 .card:hover{
     background-color: transparent;
     transform: translateY(-10px);
-    border-color: #093f89;
+    border-color: var(--secondary-color);
 }
 .card:hover i{
     color: #f37028;

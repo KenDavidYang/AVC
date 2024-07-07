@@ -1,9 +1,7 @@
-body {
-    margin: 0;
-    font-family: "Poppins";
-    background: #111111;
-    color: white;
-
+:root{
+    --primary-color: #f7f7f7;
+    --secondary-color: #212121;
+    --ordernav-color: #d1d1d1;
 }
 .footer-bar{
     display: flex;
@@ -44,4 +42,8 @@ p{
 .follow-us:hover{
     transition: 0.2s;
     color: rgba(255, 255, 255, 0.588);
+}
+.rights{
+    font-size: 13px;
+    margin: 55px 0 20px 0;
 }

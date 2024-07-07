@@ -3,17 +3,23 @@
 }
 body{
     height: 700px;
+    font-family: "century";
+}
+:root{
+    --primary-color: #f7f7f7;
+    --secondary-color: #212121;
+    --ordernav-color: #d1d1d1;
 }
 aside{
-    width: 30%;
+    width: 30%;    
+    font-family: "century";
     height: auto;
     float: left;
     display: block;
 }
-section{
-    border: 1px solid grey;
+.section{
+    border: 1px solid var(--secondary-color);
     padding: 10px;
-    margin-bottom: 20px;
     width: 68%;
     float: left;
     height: 425px;
